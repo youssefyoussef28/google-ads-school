@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Ads School</title>
+  <meta name="description" content="A free Google Ads class every morning: what changed, why it matters, worked examples, expert debate, the best videos and a quiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="index">
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <!-- 1. Hook: what this is + today's lesson -->
+    <section class="hero">
+      <div>
+        <span class="live" id="live">Updated today</span>
+        <h1>Get <span class="c1">better</span> at <span class="c2">Google</span> <span class="c3">Ads</span>, <span class="c4">every</span> morning.</h1>
+        <p class="lede">A new class lands at 9:30 AM daily. It starts from what actually changed in Google Ads, then teaches the idea behind it with worked examples, real practitioner tests, the best videos on the topic, and a quick quiz.</p>
+        <div class="hero-actions">
+          <a class="btn" id="hero-read" href="#latest">Read today's lesson</a>
+          <a class="btn ghost" href="#join">Join free</a>
+        </div>
+        <div class="hero-proof">
+          <div><b id="proof-lessons">0</b>lessons so far</div>
+          <div><b id="proof-tracks">0</b>tracks covered</div>
+          <div><b>9:30</b>new class daily</div>
+        </div>
+      </div>
+      <a class="featured" id="featured" href="#"></a>
+    </section>
+
+    <!-- 2. Freshness: what was added/updated, day by day -->
+    <section class="section" aria-labelledby="new-title">
+      <div class="section-head">
+        <div><div class="eyebrow">Fresh from the school</div><h2 id="new-title">What's new</h2><p>Everything added or updated, day by day. Come back tomorrow for the next class.</p></div>
+        <a class="link-arrow" href="updates.html">Full history →</a>
+      </div>
+      <div class="updates" id="updates"></div>
+    </section>
+
+    <!-- 3. Depth: browse every lesson -->
+    <section class="section" id="latest" aria-labelledby="latest-title">
+      <div class="section-head">
+        <div><div class="eyebrow">The library</div><h2 id="latest-title">Every lesson</h2><p>Filter by topic or level, or search for anything.</p></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <select class="search" id="level" aria-label="Filter by level" style="width:auto">
+            <option value="All">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+          </select>
+          <input class="search" id="search" type="search" placeholder="Search lessons…" aria-label="Search lessons">
+        </div>
+      </div>
+      <div class="filters" id="track-chips"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- 4. Path: the curriculum -->
+    <section class="section" aria-labelledby="tracks-title">
+      <div class="section-head">
+        <div><div class="eyebrow">The curriculum</div><h2 id="tracks-title">Nine tracks, one skill set</h2><p>Every lesson belongs to a track. Over time they add up to the whole job, from fundamentals to Performance Max and measurement.</p></div>
+      </div>
+      <div class="tracks" id="tracks"></div>
+    </section>
+
+    <!-- 5. Beyond us: the best places to learn -->
+    <section class="section" aria-labelledby="res-title">
+      <div class="section-head">
+        <div><div class="eyebrow">Learn from the best</div><h2 id="res-title">The best places to learn Google Ads</h2><p>We read them every day so you don't have to, but these are worth bookmarking.</p></div>
+        <a class="link-arrow" href="resources.html">See the full list →</a>
+      </div>
+      <div class="resources" id="top-resources"></div>
+    </section>
+
+    <!-- 6. Convert: free membership -->
+    <div id="join-slot"></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/resources.js"></script>
+  <script src="data/index.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

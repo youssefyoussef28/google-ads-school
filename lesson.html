@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson · Google Ads School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="lesson">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div id="site-header"></div>
+
+  <main class="wrap" id="lesson">
+    <div class="lesson-layout">
+      <div>
+        <div class="lesson-head" id="head"></div>
+        <article class="prose" id="article"></article>
+        <section class="community" id="community"></section>
+      </div>
+      <aside class="toc">
+        <h4>In this lesson</h4>
+        <nav id="toc-links" aria-label="Lesson sections"></nav>
+        <form class="sub-mini" data-subscribe novalidate>
+          <span class="eyebrow">Free membership</span>
+          <b>Get tomorrow's lesson by email</b>
+          <p>One class every morning. Free forever.</p>
+          <input name="email" type="email" placeholder="you@company.com" aria-label="Email" autocomplete="email">
+          <button class="btn" type="submit">Join free</button>
+        </form>
+      </aside>
+    </div>
+    <section class="keep" id="related"></section>
+    <div class="pager" id="pager"></div>
+    <div style="height:40px"></div>
+    <div id="join-slot"></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="assets/config.js"></script>
+  <script src="data/index.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
