@@ -18,6 +18,60 @@ window.SCHOOL_INDEX = [
   "minutes": 7
  },
  {
+  "slug": "2026-11-06-ai-max-copy-preview",
+  "title": "Preview what AI Max would write before you let it: how to use the new copy preview safely",
+  "date": "2026-11-06",
+  "track": "Audiences & AI",
+  "level": "Beginner",
+  "summary": "Google Ads now lets you see up to 10 sample AI-written headlines and descriptions for your landing page before turning on AI Max text customization. Learn how the preview works, what it can and can't tell you, and a simple checklist for deciding whether to let Google write your ads.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "AI Max",
+   "text customization",
+   "ad copy",
+   "text guidelines",
+   "final URL"
+  ],
+  "minutes": 6
+ },
+ {
+  "slug": "2026-11-05-offline-conversions-seven-day-rule",
+  "title": "The 7-day rule that can make your offline conversions invisible to attribution modeling",
+  "date": "2026-11-05",
+  "track": "Measurement & Tracking",
+  "level": "Advanced",
+  "summary": "Google's documentation says offline conversions uploaded more than seven days late are skipped by the attribution modeling calculations, even though your regular reports still count them. Learn what that means for data-driven attribution and bidding, how to tell if you're affected, and how to fix the upload lag.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "offline conversions",
+   "attribution",
+   "data-driven attribution",
+   "GCLID",
+   "lead gen"
+  ],
+  "minutes": 6
+ },
+ {
+  "slug": "2026-11-04-ai-max-search-terms-and-ad-combinations",
+  "title": "Finally see what AI Max is doing: how to read the \"Search terms and ad combinations\" report",
+  "date": "2026-11-04",
+  "track": "Search & Keywords",
+  "level": "Intermediate",
+  "summary": "AI Max has long been criticized for hiding which searches it matches. A newer report pairs each search term with the headline and landing page that served it. Learn how to find it, what each column tells you, and a 20-minute weekly routine to catch mismatches before they waste budget.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "AI Max",
+   "search terms",
+   "negative keywords",
+   "reporting",
+   "Search"
+  ],
+  "minutes": 7
+ },
+ {
   "slug": "2026-11-03-ads-in-ai-mode-go-global",
   "title": "Ads in AI Mode go global: how your campaigns get in (and what you can't control)",
   "date": "2026-11-03",
@@ -100,6 +154,39 @@ window.SCHOOL_UPDATES = [
     "slug": "2026-11-07-ai-review-summaries-in-search-ads",
     "title": "Google is writing review summaries into your Search ads: what you control, what you don't, and how to judge the effect",
     "track": "Creative & Ad Copy"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-06",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-06-ai-max-copy-preview",
+    "title": "Preview what AI Max would write before you let it: how to use the new copy preview safely",
+    "track": "Audiences & AI"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-05",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-05-offline-conversions-seven-day-rule",
+    "title": "The 7-day rule that can make your offline conversions invisible to attribution modeling",
+    "track": "Measurement & Tracking"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-04",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-04-ai-max-search-terms-and-ad-combinations",
+    "title": "Finally see what AI Max is doing: how to read the \"Search terms and ad combinations\" report",
+    "track": "Search & Keywords"
    }
   ]
  },
