@@ -1,5 +1,23 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-07-ai-review-summaries-in-search-ads",
+  "title": "Google is writing review summaries into your Search ads: what you control, what you don't, and how to judge the effect",
+  "date": "2026-11-07",
+  "track": "Creative & Ad Copy",
+  "level": "Intermediate",
+  "summary": "Google's help center now confirms AI-written, positive-only review summaries can appear inside Search ads in the US, UK, Australia and India. Learn what's confirmed, what's still unanswered, why your real reviews just became ad copy, and how to check whether it helps your account.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "review summaries",
+   "automated assets",
+   "seller ratings",
+   "ad copy",
+   "Search"
+  ],
+  "minutes": 7
+ },
+ {
   "slug": "2026-11-03-ads-in-ai-mode-go-global",
   "title": "Ads in AI Mode go global: how your campaigns get in (and what you can't control)",
   "date": "2026-11-03",
@@ -74,6 +92,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-07",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-07-ai-review-summaries-in-search-ads",
+    "title": "Google is writing review summaries into your Search ads: what you control, what you don't, and how to judge the effect",
+    "track": "Creative & Ad Copy"
+   }
+  ]
+ },
  {
   "date": "2026-11-03",
   "items": [
