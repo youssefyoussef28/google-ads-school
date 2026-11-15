@@ -1,6 +1,6 @@
 # Google Ads School: editorial playbook
 
-This is the guide for the daily 9:30 AM run that writes one new lesson. Read it fully before writing.
+This is the guide for the daily 6:00 AM run that writes one new lesson. Read it fully before writing.
 
 ## The mission
 

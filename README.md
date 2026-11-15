@@ -11,6 +11,6 @@ A free Google Ads class every morning. Each lesson starts from what changed in G
 - `index.html`, `lesson.html`, `updates.html`, `resources.html`, `about.html` + `assets/`: the static site.
 - `EDITORIAL.md`: the playbook the daily writer follows (sources, accuracy rules, lesson format).
 
-A scheduled Claude Code cloud routine writes one lesson every morning at 9:30 (Beirut time), runs the build, and pushes to `main`. GitHub Pages publishes the site automatically.
+A scheduled Claude Code cloud routine writes one lesson every morning at 6:00 (Beirut time), runs the build, and pushes to `main`. GitHub Pages publishes the site automatically.
 
 To preview locally, open `index.html` in a browser, or run any static server in this folder.

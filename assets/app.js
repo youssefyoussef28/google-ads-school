@@ -165,7 +165,7 @@
           <h2 id="join-title">Become a Google Ads School member</h2>
           <p>One sharp lesson in your inbox every morning. What changed in Google Ads, what it means, and exactly what to do about it.</p>
           <ul>
-            <li>Daily lesson at 9:30 AM, about 7 minutes to read</li>
+            <li>Daily lesson at 6:00 AM, about 7 minutes to read</li>
             <li>Verified news from Google and top practitioners</li>
             <li>Worked examples, videos and a quick quiz</li>
           </ul>
@@ -251,7 +251,7 @@
       const parts = [added && `${added} new lesson${added > 1 ? "s" : ""}`, updated && `${updated} updated`].filter(Boolean);
       $("live").textContent = `Updated ${day} · ${parts.join(", ")}`;
     } else {
-      $("live").textContent = "First class publishes at 9:30 AM";
+      $("live").textContent = "First class publishes at 6:00 AM";
     }
     $("proof-lessons").textContent = LESSONS.length;
     $("proof-tracks").textContent = new Set(LESSONS.map((l) => l.track)).size;
@@ -271,7 +271,7 @@
         <div class="go"><span>Start the lesson</span><span>→</span></div>`;
       $("hero-read").href = lessonUrl(latest.slug);
     } else {
-      featured.outerHTML = `<div class="empty">No lessons yet. The first class publishes at 9:30 AM.</div>`;
+      featured.outerHTML = `<div class="empty">No lessons yet. The first class publishes at 6:00 AM.</div>`;
     }
 
     $("updates").innerHTML = UPDATES.length ? updatesList(UPDATES.slice(0, 3)) : `<div class="empty">Nothing here yet.</div>`;
