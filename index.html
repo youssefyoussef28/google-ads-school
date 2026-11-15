@@ -1,88 +1,293 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-type="software" data-radius="soft" data-ground="sky" data-buttons="solid" data-motion>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Google Ads School</title>
-  <meta name="description" content="A free Google Ads class every morning: what changed, why it matters, worked examples, expert debate, the best videos and a quiz.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Google Ads School: a daily Google Ads lesson for advertisers</title>
+<meta name="description" content="One free lesson each morning at 6:00 Beirut time on a Google Ads change or core skill, with a worked example, sources and a quiz.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Google Ads School: a daily Google Ads lesson for advertisers">
+<meta property="og:description" content="A free Google Ads lesson every morning, with a worked example, sources and a quiz.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#eef0f3">
+<!-- <link rel="canonical" href="https://youssefyoussef28.github.io/google-ads-school/"> -->
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+:root {
+  --p-bg: #eef0f3; --p-surface: #e2e5ea; --p-ink: #0b0c0e; --p-muted: #5e5f62;
+  --p-accent: #1a73e8; --p-accent-ink: #ffffff; --p-action: #1a73e8; --p-action-ink: #ffffff;
+  --p-inv-bg: #0b0c0e; --p-inv-surface: #17181a; --p-inv-ink: #eef0f3; --p-inv-muted: #8e8f92;
+  --p-inv-accent: #1a73e8; --p-inv-accent-ink: #ffffff; --p-inv-action: #1a73e8; --p-inv-action-ink: #ffffff;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-text: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+}
+</style>
+<link rel="stylesheet" href="assets/diagrams/diagram.css">
+<link rel="stylesheet" href="assets/school.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/theme.js"></script>
+<script src="assets/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/marquee-row/moment.js">
+<style>
+  /* page CSS: inside the visuals only, and one --p-h per card group */
+  #lessons .panel { --p-h: 112px; }
+  #inside .panel { --p-h: 236px; }
+  @media (max-width: 639px) { #lessons .panel { --p-h: 122px; } #inside .panel { --p-h: 170px; } }
+  @media (min-width: 640px) and (max-width: 1279px) { #lessons { --h: 2; } }
+</style>
 </head>
 <body data-page="index">
-  <div id="site-header"></div>
+<!-- type: software (an online school whose product is the daily lesson reader)
+     deal: hero centred, nav nav-centre (nav-cards re-dealt: no photographs to show), close close-word,
+     footer footer-dark, rhythm dark-band, buttons solid, mark initial, ground sky (lit ground behind UI)
+     palette: client colours via start.mjs brand (cool grey ground, Google blue #1a73e8 accent), type geist
+     moments: marquee-row, merged into #lessons as its last row -->
 
-  <main class="wrap">
-    <!-- 1. Hook: what this is + today's lesson -->
-    <section class="hero">
-      <div>
-        <span class="live" id="live">Updated today</span>
-        <h1>Get <span class="c1">better</span> at <span class="c2">Google</span> <span class="c3">Ads</span>, <span class="c4">every</span> morning.</h1>
-        <p class="lede">A new class lands at 6:00 AM daily. It starts from what actually changed in Google Ads, then teaches the idea behind it with worked examples, real practitioner tests, the best videos on the topic, and a quick quiz.</p>
-        <div class="hero-actions">
-          <a class="btn" id="hero-read" href="#latest">Read today's lesson</a>
-          <a class="btn ghost" href="#join">Join free</a>
-        </div>
-        <div class="hero-proof">
-          <div><b id="proof-lessons">0</b>lessons so far</div>
-          <div><b id="proof-tracks">0</b>tracks covered</div>
-          <div><b>6:00</b>new class daily</div>
-        </div>
-      </div>
-      <a class="featured" id="featured" href="#"></a>
-    </section>
-
-    <!-- 2. Freshness: what was added/updated, day by day -->
-    <section class="section" aria-labelledby="new-title">
-      <div class="section-head">
-        <div><div class="eyebrow">Fresh from the school</div><h2 id="new-title">What's new</h2><p>Everything added or updated, day by day. Come back tomorrow for the next class.</p></div>
-        <a class="link-arrow" href="updates.html">Full history →</a>
-      </div>
-      <div class="updates" id="updates"></div>
-    </section>
-
-    <!-- 3. Depth: browse every lesson -->
-    <section class="section" id="latest" aria-labelledby="latest-title">
-      <div class="section-head">
-        <div><div class="eyebrow">The library</div><h2 id="latest-title">Every lesson</h2><p>Filter by topic or level, or search for anything.</p></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <select class="search" id="level" aria-label="Filter by level" style="width:auto">
-            <option value="All">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option>
-          </select>
-          <input class="search" id="search" type="search" placeholder="Search lessons…" aria-label="Search lessons">
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="#top"><span class="mark mark--initial" aria-hidden="true">G</span>Google Ads School</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item">
+        <a class="nav__link" href="#lessons">Lessons <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label">Lessons</p>
+              <a href="#lessons">Latest lessons<span>The six newest classes</span></a>
+              <a href="updates.html">Every lesson<span>Filter by track and level</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label">School</p>
+              <a href="about.html">How it works<span>Sources, format and limits</span></a>
+              <a href="resources.html">Where to learn<span>The best places beyond us</span></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="filters" id="track-chips"></div>
-      <div class="grid" id="grid"></div>
-    </section>
+      <div class="nav__item"><a class="nav__link" href="#inside">Format</a></div>
+      <div class="nav__item"><a class="nav__link" href="#sources">Sources</a></div>
+      <div class="nav__item"><a class="nav__link" href="#faq">Questions</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="lesson.html" data-today-link>Read today's lesson</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
 
-    <!-- 4. Path: the curriculum -->
-    <section class="section" aria-labelledby="tracks-title">
-      <div class="section-head">
-        <div><div class="eyebrow">The curriculum</div><h2 id="tracks-title">Nine tracks, one skill set</h2><p>Every lesson belongs to a track. Over time they add up to the whole job, from fundamentals to Performance Max and measurement.</p></div>
+<main id="top">
+  <section class="hero hero--centred" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__c">
+        <a class="pill" href="lesson.html" data-today-link><span>New today</span><span class="muted" data-today-title>Data Strength Uplift</span></a>
+        <h1 id="hero-h">A Google Ads lesson every morning</h1>
+        <p class="hero__lead">For advertisers and PPC teams. Each lesson explains one Google Ads change with a worked example, its sources and a three-question quiz, out at 6:00 Beirut time.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="lesson.html" data-today-link>Read today's lesson</a><a class="btn btn--secondary" href="updates.html">See every lesson</a></div>
       </div>
-      <div class="tracks" id="tracks"></div>
-    </section>
-
-    <!-- 5. Beyond us: the best places to learn -->
-    <section class="section" aria-labelledby="res-title">
-      <div class="section-head">
-        <div><div class="eyebrow">Learn from the best</div><h2 id="res-title">The best places to learn Google Ads</h2><p>We read them every day so you don't have to, but these are worth bookmarking.</p></div>
-        <a class="link-arrow" href="resources.html">See the full list →</a>
+      <div class="hero__window" role="img" aria-label="The Google Ads School reader open on today's lesson, with its 30-second summary and quiz">
+        <div class="ly-piece gs-win" aria-hidden="true">
+          <div class="gs-win__bar"><span class="gs-win__dots"><i></i><i></i><i></i></span><span><b>Google Ads School</b> · <span data-hero-track>Measurement &amp; Tracking</span></span><span class="sp"></span><span data-hero-min>8 min read</span></div>
+          <div class="gs-win__body">
+            <div class="gs-list" data-hero-list>
+              <div class="gs-list__q">Lessons</div>
+              <div class="gs-list__item is-on"><b>Data Strength Uplift: what the new number tells you</b><time>Nov 15</time></div>
+              <div class="gs-list__item"><b>Google is writing review summaries into your Search ads</b><time>Nov 7</time></div>
+              <div class="gs-list__item"><b>Preview what AI Max would write before you let it</b><time>Nov 6</time></div>
+            </div>
+            <div class="gs-read" data-ly-steps="900">
+              <p class="gs-read__title" data-hero-title>Data Strength Uplift: what Google's new "recovered conversions" number tells you</p>
+              <p class="gs-read__label">In 30 seconds</p>
+              <ul class="gs-read__tldr" data-hero-tldr>
+                <li data-step>Google Ads now estimates the share of extra conversions your first-party data setup recovered over the last 14 days.</li>
+                <li data-step>Recovered is not the same as incremental: some of those sales would have happened anyway.</li>
+              </ul>
+              <div class="gs-read__acts" data-step><span class="gs-chip gs-chip--on">Quiz · 3 questions</span><span class="gs-chip">Agree</span><span class="gs-chip">Disagree</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="resources" id="top-resources"></div>
-    </section>
+    </div></div>
+  </section>
 
-    <!-- 6. Convert: free membership -->
-    <div id="join-slot"></div>
-  </main>
+  <section class="section" id="lessons" style="--hm: 2" aria-labelledby="lessons-h">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <h2 id="lessons-h">Latest lessons. <span class="muted">One lands every morning.</span></h2>
+        <a class="link" href="updates.html">See every lesson</a>
+      </div>
+      <div class="grid" data-latest>
+        <!-- six cards, filled from data/index.js by assets/app.js; these are the build-time copy -->
+        <a class="card card--open card--row span-4 gs-lesson" href="lesson.html?l=2026-11-15-data-strength-uplift-metric" style="--tc:#34a853">
+          <div class="panel gs-cover" data-track="Measurement &amp; Tracking"><span class="gs-cover__icon" style="-webkit-mask-image:url(assets/icons/ui-ruler.svg);mask-image:url(assets/icons/ui-ruler.svg)"></span><span class="gs-cover__track">Measurement &amp; Tracking</span></div>
+          <h3>Data Strength Uplift: what the new number tells you</h3>
+          <p>Nov 15 · Intermediate · 8 min</p>
+        </a>
+      </div>
+      <div class="gs-marquee" data-moment="marquee-row" data-moment-opts='{"speed": 32}'>
+        <ul class="mo-mq__track" data-edge-free><li>AI Max</li><li>Performance Max</li><li>Smart Bidding</li><li>Customer Match</li><li>Quality Score</li><li>Ads in AI Mode</li><li>Search terms</li><li>Offline conversions</li><li>Demand Gen</li><li>Enhanced conversions</li><li>Broad match</li><li>Ad Rank</li></ul>
+      </div>
+    </div>
+  </section>
 
-  <div id="site-footer"></div>
+  <section class="section g2 ground-inverse" id="inside" aria-labelledby="inside-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="inside-h">Inside every lesson. <span class="muted">The same four parts, every morning.</span></h2>
+        </div>
+        <div class="grid">
+          <article class="card card--row card--open span-6 m-nolift">
+            <h3>A worked example with numbers</h3>
+            <p>Each change gets a worked example with real-looking account figures and the incremental cost per result.</p>
+            <div class="panel"><div class="stage stage--fade-b">
+              <div class="gs-ui gs-table at-rise" role="img" aria-label="A worked example table: spend 6,000 to 7,200 dollars, leads 150 to 174, 50 dollars per extra lead">
+                <div class="gs-ui__head"><b>Worked example</b><span>AI Max test, 30 days</span></div>
+                <div class="gs-table__row gs-table__row--h"><span></span><span>Before</span><span>With test</span></div>
+                <div class="gs-table__row"><span>Spend</span><span>$6,000</span><span>$7,200</span></div>
+                <div class="gs-table__row"><span>Leads</span><span>150</span><span>174</span></div>
+                <div class="gs-table__row gs-table__row--key"><span>Per extra lead</span><span></span><span>$50.00</span></div>
+              </div>
+            </div></div>
+          </article>
+          <article class="card card--row card--open span-6 m-nolift">
+            <h3>Google's claim beside the tests</h3>
+            <p>Where the experts disagree, both sides are named with their sources, then the lesson gives its own take.</p>
+            <div class="panel"><div class="stage stage--fade-b">
+              <div class="gs-ui gs-debate at-rise" role="img" aria-label="Google's figure next to an independent figure, and a reader vote split 64 to 36">
+                <div class="gs-ui__head"><b>Where the experts disagree</b><span>AI Max</span></div>
+                <div class="gs-debate__side"><img src="assets/icons/google-ads.svg" alt="" width="20" height="20" loading="lazy"><span>Google: about 14% more conversions at a similar CPA</span></div>
+                <div class="gs-debate__side"><span class="gs-debate__dot"></span><span>Independent data: more value, higher CPA</span></div>
+                <div class="gs-meter"><i style="width:64%"></i></div>
+                <div class="gs-meter__label"><span>64% agree</span><span>36% disagree</span></div>
+              </div>
+            </div></div>
+          </article>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card card--row card--open span-6 m-nolift">
+          <h3>2 to 4 videos, each checked</h3>
+          <p>Every YouTube link is looked up first, so the title and channel shown are the real ones.</p>
+          <div class="panel"><div class="stage stage--fade-b">
+            <div class="gs-ui gs-video at-rise" role="img" aria-label="A YouTube video card marked verified">
+              <div class="gs-video__thumb"><img src="assets/icons/youtube.svg" alt="" width="44" height="44" loading="lazy"></div>
+              <div class="gs-video__meta"><b>AI Max for Search campaigns</b><span>Google Ads · checked with YouTube</span><span class="gs-chip gs-chip--ok">Verified</span></div>
+            </div>
+          </div></div>
+        </article>
+        <article class="card card--row card--open span-6 m-nolift">
+          <h3>A three-question quiz at the end</h3>
+          <p>The questions test judgement on a scenario, such as working out the incremental cost of a test.</p>
+          <div class="panel"><div class="stage stage--fade-b">
+            <div class="gs-ui gs-quiz at-rise" role="img" aria-label="A quiz question with the correct answer marked">
+              <div class="gs-ui__head"><b>Question 3 of 3</b><span>Score 2 of 2 so far</span></div>
+              <p class="gs-quiz__q">A test adds $1,200 and 24 leads. What does each extra lead cost?</p>
+              <div class="gs-quiz__opt">$41.38</div>
+              <div class="gs-quiz__opt is-right">$50.00</div>
+              <div class="gs-quiz__opt">$1.38</div>
+            </div>
+          </div></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <script src="assets/config.js"></script>
-  <script src="assets/resources.js"></script>
-  <script src="data/index.js"></script>
-  <script src="assets/app.js"></script>
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="faq-h">Questions about the school</h2></div>
+      <div class="faq">
+        <div class="faq__item"><h3>Who writes the lessons?</h3><p>Claude, an AI model made by Anthropic, researches and writes each one. Lessons link their sources, so check a change in your own account before acting on it.</p></div>
+        <div class="faq__item"><h3>Does the school cost anything?</h3><p>No. Reading is free and there is no account to make.</p></div>
+        <div class="faq__item"><h3>How is the school different from YouTube?</h3><p>Each lesson puts Google's claim, independent data and practitioner tests side by side, dated and sourced, and links the best videos on the topic.</p></div>
+        <div class="faq__item"><h3>Which language are the lessons in?</h3><p>English only, for now.</p></div>
+        <div class="faq__item"><h3>Can I argue with a lesson?</h3><p>Yes. Every lesson ends with an agree or disagree vote and a discussion, and a correction shows up in the changelog.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sources" style="--hm: 2" aria-labelledby="sources-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-6">
+          <div class="section-head">
+            <h2 id="sources-h">The sources behind each lesson</h2>
+            <p>Google's own announcements and help pages come first, then the trade press, then practitioners who publish their tests. Forums only ever count as an early signal.</p>
+          </div>
+          <div class="btn-row"><a class="btn btn--secondary" href="resources.html">See the sources list</a></div>
+        </div>
+        <div class="span-7 start-6 frame gs-dg" data-dg-still>
+          <div class="dg" data-diagram><script type="application/json">{"layout":"fanin","alt":"Google Ads Help, YouTube, Reddit and LinkedIn feed a fact check, which becomes the day's lesson.","sources":[{"label":"Google Ads Help","icon":"google-ads","sub":"Tier 1"},{"label":"Trade press","icon":"ui:newspaper","sub":"Tier 2"},{"label":"YouTube","icon":"youtube","sub":"Teachers"},{"label":"LinkedIn","icon":"linkedin","sub":"Practitioners"},{"label":"Reddit","icon":"reddit","sub":"Signals only"}],"target":{"label":"Fact check","icon":"ui:shield-check"},"then":{"label":"Lesson","icon":"ui:book-open","meta":"6:00"}}</script></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--word">
+      <div class="section-head--split">
+        <div><h2 id="close-h">Read today's lesson</h2><p class="t-lead">A new one is published every morning at 6:00 Beirut time.</p></div>
+        <a class="btn btn--primary" href="lesson.html" data-today-link>Read today's lesson<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <p class="close__word" aria-hidden="true">Google Ads School</p>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <form class="form gs-sub" action="mailto:hello@googleadsschool.example" method="post" enctype="text/plain" data-endpoint="" data-sent="You're subscribed. The next lesson arrives tomorrow morning." novalidate>
+            <div class="field"><label for="f-email">Email for the daily lesson</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
+              <p class="field__error" id="f-email-err" hidden>Write an email address with an @, like name@example.com.</p></div>
+            <div class="btn-row"><button class="btn btn--secondary" type="submit">Subscribe</button></div>
+            <p class="form__status" role="status" data-form-status></p>
+          </form>
+        </div>
+        <div class="span-2 footer__col"><h3>Lessons</h3><ul><li><a href="#lessons">Latest</a></li><li><a href="updates.html">Every lesson</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>School</h3><ul><li><a href="about.html">How it works</a></li><li><a href="resources.html">Where to learn</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>View</h3><ul><li><button class="gs-theme" type="button" data-theme-toggle>Dark</button></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Google Ads School. Independent, not affiliated with Google.</span>
+        <span>Product names and logos are trademarks of their owners.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="Quick actions">
+  <a class="btn btn--primary" href="lesson.html" data-today-link>Read today's lesson</a>
+</nav>
+
+<script src="assets/config.js"></script>
+<script src="data/index.js"></script>
+<script src="assets/home.js"></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/diagrams/mount.js"></script>
 </body>
 </html>

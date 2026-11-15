@@ -1,0 +1,109 @@
+/* Google Ads School: the page CSS the kit lacks. Only what sits inside a visual (the reader window,
+   lesson covers, the UI on the format cards, the diagram frame), the dark tone and the footer form.
+   Tokens, grid, buttons, nav and sections come from system.css. */
+
+/* ---------- dark tone: the same palette, inverted (set on <html data-tone="dark"> by theme.js) */
+html[data-tone="dark"] {
+  --p-bg: #0f1012; --p-surface: #191a1d; --p-ink: #eceef1; --p-muted: #9b9da2;
+  --p-action: #8ab4f8; --p-action-ink: #0b1a33; --p-accent: #8ab4f8; --p-accent-ink: #0b1a33;
+  --p-inv-bg: #17191c; --p-inv-surface: #202226; --p-inv-ink: #eceef1; --p-inv-muted: #9b9da2;
+  --p-inv-action: #8ab4f8; --p-inv-action-ink: #0b1a33;
+  color-scheme: dark;
+}
+
+/* ---------- the reader window in the hero (a picture of the product: its list and the open lesson) */
+.gs-win { background: #fff; color: #16181a; border-radius: 12px; overflow: hidden; font: 400 14px/1.45 var(--font-text); text-align: left;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / .07), 0 24px 60px -28px rgb(0 0 0 / .45); }
+.gs-win__bar { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px; border-bottom: 1px solid rgb(0 0 0 / .07); font-size: 13px; color: #5d6268; }
+.gs-win__bar b { color: #16181a; font-weight: 500; }
+.gs-win__bar .sp { flex: 1; }
+.gs-win__dots { display: flex; gap: 6px; }
+.gs-win__dots i { width: 10px; height: 10px; border-radius: 50%; }
+.gs-win__dots i:nth-child(1) { background: #ea4335; } .gs-win__dots i:nth-child(2) { background: #fbbc05; } .gs-win__dots i:nth-child(3) { background: #34a853; }
+.gs-win__body { display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 380px; }
+.gs-list { padding: 12px 10px; border-right: 1px solid rgb(0 0 0 / .07); display: grid; align-content: start; gap: 2px; }
+.gs-list__q { font-size: 13px; color: #8a8f94; padding: 4px 8px 8px; }
+.gs-list__item { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 8px; border-radius: 8px; font-size: 13px; }
+.gs-list__item b { font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gs-list__item time { color: #8a8f94; white-space: nowrap; }
+.gs-list__item.is-on { background: #e8f0fe; }
+.gs-read { padding: 18px 22px; display: grid; gap: 10px; align-content: start; }
+.gs-read__title { margin: 0; font: 500 18px/1.3 var(--font-display); letter-spacing: -0.01em; }
+.gs-read__label { margin: 4px 0 0; font-size: 13px; font-weight: 500; color: #1a73e8; }
+.gs-read__tldr { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: #3c4043; }
+.gs-read__tldr li { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gs-read__acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.gs-chip { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 99px; background: #f1f3f4; color: #3c4043; font-size: 13px; font-weight: 500; }
+.gs-chip--on { background: #1a73e8; color: #fff; }
+.gs-chip--ok { background: #e6f4ea; color: #137333; height: 24px; justify-self: start; }
+@media (max-width: 639px) {
+  .gs-win__body { grid-template-columns: 1fr; min-height: 0; }
+  .gs-list { display: none; }
+  .gs-read { padding: 14px 16px; }
+  .gs-read__title { font-size: 16px; }
+}
+
+/* ---------- lesson covers: the track's colour and glyph */
+.gs-cover { display: flex; align-items: flex-end; justify-content: space-between; padding: 16px 18px;
+  background: color-mix(in oklab, var(--tc, #1a73e8) 16%, var(--surface)) !important; }
+.gs-cover::before { display: none; }
+.gs-cover__icon { width: 32px; height: 32px; background: var(--tc, #1a73e8); -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.gs-cover__track { font-size: 13px; font-weight: 500; color: var(--ink); }
+.gs-lesson h3 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gs-lesson p { color: var(--muted); }
+.gs-new { display: inline-block; margin-right: 8px; color: #ea4335; font-weight: 500; }
+
+/* ---------- the topic row (marquee moment), the last row of #lessons */
+.gs-marquee { margin-top: var(--s-7); font: var(--display-weight) var(--t-h3)/1.2 var(--font-display); letter-spacing: var(--display-tracking); color: var(--muted); }
+.gs-marquee ul { list-style: none; margin: 0; padding: 0; }
+
+/* ---------- the UI on the format cards: a small solid sheet on the lit panel */
+.gs-ui { background: #fff; color: #16181a; border-radius: 12px; padding: 14px 16px; font: 400 14px/1.4 var(--font-text);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / .06), 0 18px 44px -20px rgb(0 0 0 / .4); width: min(440px, calc(100% - 48px)); display: grid; gap: 8px; }
+.gs-ui__head { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #5d6268; }
+.gs-ui__head b { color: #16181a; font-weight: 500; }
+.gs-table__row { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgb(0 0 0 / .07); font-variant-numeric: tabular-nums; }
+.gs-table__row > span:not(:first-child) { text-align: right; }
+.gs-table__row--h { color: #8a8f94; font-size: 13px; }
+.gs-table__row--key { border-bottom: 0; font-weight: 500; color: #1a73e8; }
+.gs-debate__side { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+.gs-debate__side img { flex: none; }
+.gs-debate__dot { flex: none; width: 20px; height: 20px; border-radius: 50%; background: #fbbc05; }
+.gs-meter { height: 8px; border-radius: 99px; background: #fce8e6; overflow: hidden; display: flex; margin-top: 4px; }
+.gs-meter i { display: block; background: #34a853; }
+.gs-meter__label { display: flex; justify-content: space-between; font-size: 13px; color: #5d6268; }
+.gs-video { grid-template-columns: 120px 1fr; align-items: center; gap: 14px; }
+.gs-video__thumb { aspect-ratio: 16 / 9; border-radius: 8px; background: #202124; display: grid; place-items: center; }
+.gs-video__meta { display: grid; gap: 4px; }
+.gs-video__meta span { font-size: 13px; color: #5d6268; }
+.gs-quiz__q { margin: 0; font-weight: 500; }
+.gs-quiz__opt { padding: 8px 12px; border: 1px solid rgb(0 0 0 / .1); border-radius: 8px; }
+.gs-quiz__opt.is-right { border-color: #34a853; background: #e6f4ea; }
+
+/* ---------- the sources diagram's frame */
+.gs-dg { min-height: 600px; border-radius: var(--r-lg); background: var(--ground-bg, var(--surface)); display: grid; place-items: center; padding: var(--s-5); }
+.gs-dg .dg { width: 100%; }
+
+/* the reader window's own pause button (layout.js) keeps a ring that reads on the white window */
+.gs-win .loop-pause:focus-visible { outline: 2px solid #1a73e8; outline-offset: 2px; }
+@media (max-width: 639px) { .gs-read__tldr, .gs-read__label { display: none; } .gs-read__title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } }
+
+/* ---------- the close: the name set across the .wrap, sized so its 17 letters fit the line */
+.close__word { font-size: clamp(40px, 8.2vw, 124px); line-height: 1.08; white-space: nowrap; overflow: visible; }
+@media (max-width: 639px) { .close__word { font-size: 8.4vw; } }
+
+/* ---------- footer: the one newsletter field and the tone switch */
+.gs-sub { max-width: 420px; }
+.gs-theme { background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; min-height: 44px; }
+.gs-theme:hover { color: var(--action); }
+
+/* phone: three lesson cards, the full titles, and a shorter diagram frame */
+@media (max-width: 639px) {
+  [data-latest] > .gs-lesson:nth-child(n + 5) { display: none; }
+  .gs-lesson h3 { display: block; -webkit-line-clamp: unset; overflow: visible; }
+  .gs-dg { min-height: 340px; }
+}
+
+/* lesson covers: one height for every cover in a row */
+.gs-cover { flex: none !important; height: var(--p-h); min-height: 0; }
+.gs-sub input { width: 100%; }

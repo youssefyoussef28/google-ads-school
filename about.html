@@ -1,58 +1,79 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-radius="soft" data-buttons="solid" data-motion>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How It Works · Google Ads School</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#eef0f3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<style>
+:root {
+  --p-bg: #eef0f3; --p-surface: #e2e5ea; --p-ink: #0b0c0e; --p-muted: #5e5f62;
+  --p-accent: #1a73e8; --p-accent-ink: #ffffff; --p-action: #1a73e8; --p-action-ink: #ffffff;
+  --p-inv-bg: #0b0c0e; --p-inv-surface: #17181a; --p-inv-ink: #eef0f3; --p-inv-muted: #8e8f92;
+  --p-inv-accent: #1a73e8; --p-inv-accent-ink: #ffffff; --p-inv-action: #1a73e8; --p-inv-action-ink: #ffffff;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-text: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+}
+</style>
+<link rel="stylesheet" href="assets/school.css">
+<link rel="stylesheet" href="assets/content.css">
+<script src="assets/theme.js"></script>
+<title>How it works · Google Ads School</title>
+<meta name="description" content="How Google Ads School researches, writes and checks one Google Ads lesson every morning.">
 </head>
 <body data-page="about">
-  <div id="site-header"></div>
-  <main class="wrap">
-    <header class="page-head">
-      <div class="eyebrow">How it works</div>
-      <h1>A school that writes itself every morning</h1>
-      <p>Every day at 6:00 AM, Claude reads the best sources in paid search and turns the most useful change into a class.</p>
-    </header>
-    <div class="about prose">
-      <h2>Every lesson follows the same path</h2>
-      <ol>
-        <li><b>In 30 seconds:</b> the whole lesson in three bullets.</li>
-        <li><b>What changed:</b> the news, with sources.</li>
-        <li><b>Why it matters:</b> who it affects and how.</li>
-        <li><b>The lesson:</b> the underlying concept, explained from first principles.</li>
-        <li><b>Worked example:</b> a realistic account scenario with the maths shown.</li>
-        <li><b>What others are doing:</b> real tests and case studies from practitioners.</li>
-        <li><b>Where the experts disagree:</b> Google's claims next to independent results, plus our take.</li>
-        <li><b>Watch:</b> hand-picked YouTube videos that go deeper.</li>
-        <li><b>Do this today:</b> a checklist for your own account.</li>
-        <li><b>Quiz:</b> three questions that test judgment, not trivia.</li>
-      </ol>
-      <p>On slow news days, the class covers a core skill instead, so the curriculum keeps building across nine tracks.</p>
+<div id="site-header"></div>
+<main id="top">
+  <div class="page">
+    <div class="wrap">
+      <header class="page-head">
+        <h1>How the school works</h1>
+        <p>Every morning at 6:00 Beirut time, Claude reads the best sources in paid search and turns the most useful change into one lesson.</p>
+      </header>
+      <div class="prose">
+        <h2>The same path in every lesson</h2>
+        <ol>
+          <li><b>In 30 seconds:</b> the whole lesson in three bullets.</li>
+          <li><b>What changed:</b> the news, dated and sourced.</li>
+          <li><b>Why it matters:</b> who it affects and how.</li>
+          <li><b>The lesson:</b> the idea underneath, explained from the start.</li>
+          <li><b>Worked example:</b> an account scenario with the maths shown.</li>
+          <li><b>What others are doing:</b> real tests and case studies from practitioners.</li>
+          <li><b>Where the experts disagree:</b> Google's claim beside independent results, then a clear take.</li>
+          <li><b>Watch:</b> two to four YouTube videos, each looked up before it is linked.</li>
+          <li><b>Do this today:</b> a checklist for your own account.</li>
+          <li><b>Quiz:</b> three questions on judgement, such as the cost of a test.</li>
+        </ol>
+        <p>On a slow news day the lesson covers a core skill instead, so the nine tracks keep growing.</p>
 
-      <h2>Why not just YouTube?</h2>
-      <p>YouTube has brilliant Google Ads teachers, and we link to the best of them every day (see <a href="resources.html">where to learn</a>). But on its own, YouTube gives you one creator's opinion at a time, often months out of date, with nobody checking the claims and no path from beginner to expert. This school is the layer on top:</p>
-      <ul>
-        <li><b>Verified:</b> every claim about a Google change is traced back to Google itself, and every performance claim to a real test.</li>
-        <li><b>Every viewpoint in one place:</b> Google's numbers, independent data and top practitioners' tests, side by side.</li>
-        <li><b>Current:</b> written fresh every morning, dated, with a public <a href="updates.html">changelog</a>.</li>
-        <li><b>A curriculum, not a feed:</b> nine tracks that build on each other.</li>
-        <li><b>Practice:</b> worked maths, a checklist for your account, and a quiz.</li>
-        <li><b>A conversation:</b> vote on every lesson and share your own results in the discussion.</li>
-      </ul>
+        <h2>Why not just watch YouTube?</h2>
+        <p>YouTube has excellent Google Ads teachers, and the lessons link the best of them (see <a href="resources.html">where to learn</a>). On its own it gives one creator's view at a time, often months old, with no one checking the claims. Each lesson here puts Google's own wording, independent data and practitioner tests side by side, with dates and links, and keeps a public <a href="updates.html#changelog">changelog</a> of every lesson added or corrected.</p>
 
-      <h2>Where the information comes from</h2>
-      <p>Sources are ranked. Google's own announcements and documentation come first, then the top industry publications, then experienced practitioners who publish real tests. Forums and social posts are treated as early signals only, never as fact on their own.</p>
-      <blockquote>Lessons are researched and written by AI. They link to their sources, but always double-check a change in your own account or in Google's documentation before acting on it.</blockquote>
+        <h2>Where the facts come from</h2>
+        <p>Sources are ranked. Google's announcements and help pages come first, then the trade press, then practitioners who publish their tests. Forums and social posts only ever count as an early signal, never as a fact on their own.</p>
+
+        <h2>What to keep in mind</h2>
+        <p>Claude, an AI model made by Anthropic, researches and writes the lessons. Each one links its sources, but check a change in your own account or in Google's documentation before you act on it. Lessons are in English only.</p>
+      </div>
     </div>
-    <div id="join-slot"></div>
-  </main>
-  <div id="site-footer"></div>
-  <script src="assets/config.js"></script>
-  <script src="data/index.js"></script>
-  <script src="assets/app.js"></script>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="assets/config.js"></script>
+<script src="data/index.js"></script>
+<script src="assets/app.js"></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
-// Google Ads School — client-side rendering for every page.
-// Data: data/index.js (SCHOOL_INDEX, SCHOOL_TRACKS, SCHOOL_UPDATES), data/lessons/<slug>.js,
-// assets/resources.js (SCHOOL_RESOURCES), assets/config.js (SCHOOL_CONFIG).
+// Google Ads School: the inner pages (lesson.html, updates.html, resources.html, about.html).
+// Writes the shared nav and footer, then renders the page from data/index.js (SCHOOL_INDEX,
+// SCHOOL_TRACKS, SCHOOL_UPDATES), data/lessons/<slug>.js, assets/resources.js and assets/config.js.
+// The kit's system.js (loaded after this file) then runs the nav, the forms and the motion layer.
 
 (function () {
   const store = {
@@ -28,74 +29,82 @@
   const UPDATES = window.SCHOOL_UPDATES || [];
   const CONFIG = window.SCHOOL_CONFIG || {};
 
-  // Each track gets a Google color and an icon.
+  // Each track: a Google colour and a glyph from assets/icons.
   const TRACK_STYLE = {
-    "News & Updates": ["#4285f4", "📰"],
-    Fundamentals: ["#34a853", "🧱"],
-    "Bidding & Budgets": ["#fbbc05", "💰"],
-    "Performance Max": ["#ea4335", "🚀"],
-    "Search & Keywords": ["#4285f4", "🔎"],
-    "Creative & Ad Copy": ["#ea4335", "✍️"],
-    "Measurement & Tracking": ["#34a853", "📏"],
-    "Audiences & AI": ["#fbbc05", "🎯"],
-    "Case Studies": ["#4285f4", "🧪"],
+    "News & Updates": ["#4285f4", "newspaper"],
+    Fundamentals: ["#34a853", "blocks"],
+    "Bidding & Budgets": ["#f9ab00", "coins"],
+    "Performance Max": ["#ea4335", "rocket"],
+    "Search & Keywords": ["#4285f4", "search"],
+    "Creative & Ad Copy": ["#ea4335", "pen-line"],
+    "Measurement & Tracking": ["#34a853", "ruler"],
+    "Audiences & AI": ["#f9ab00", "target"],
+    "Case Studies": ["#4285f4", "flask-conical"],
   };
-  const tc = (track) => (TRACK_STYLE[track] || ["#4285f4"])[0];
+  const tstyle = (t) => TRACK_STYLE[t] || ["#4285f4", "book-open"];
 
-  // ---------- Dates ----------
+  // ---------- dates
   const localISO = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   const TODAY = localISO(new Date());
   const YESTERDAY = localISO(new Date(Date.now() - 864e5));
   const parse = (iso) => new Date(iso + "T12:00:00");
-  const fmtDate = (iso, opts = { month: "short", day: "numeric", year: "numeric" }) => parse(iso).toLocaleDateString(undefined, opts);
-  const relDay = (iso) => (iso === TODAY ? "Today" : iso === YESTERDAY ? "Yesterday" : parse(iso).toLocaleDateString(undefined, { weekday: "long" }));
+  const fmtDate = (iso, opts = { month: "short", day: "numeric", year: "numeric" }) => parse(iso).toLocaleDateString("en", opts);
+  const relDay = (iso) => (iso === TODAY ? "Today" : iso === YESTERDAY ? "Yesterday" : parse(iso).toLocaleDateString("en", { weekday: "long" }));
   const lessonUrl = (slug) => `lesson.html?l=${encodeURIComponent(slug)}`;
+  const todayUrl = LESSONS[0] ? lessonUrl(LESSONS[0].slug) : "index.html";
 
-  // ---------- Shared chrome ----------
+  // ---------- the shared nav and footer (the kit's markup, as on the home page)
   function renderChrome() {
     const page = document.body.dataset.page;
+    const cur = (p) => (page === p ? ' aria-current="page"' : "");
     const header = $("site-header");
     if (header) {
       header.outerHTML = `
-        <div class="stripe"></div>
-        <header class="site-header">
-          <div class="wrap">
-            <a class="brand" href="index.html" aria-label="Google Ads School home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span>Google Ads School</a>
-            <nav class="nav" aria-label="Main">
-              <a class="hide-sm" href="index.html#latest">Lessons</a>
-              <a class="hide-sm" href="updates.html">What's new</a>
-              <a class="hide-sm" href="resources.html">Where to learn</a>
-              <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
-              <a class="cta" href="#join">Join free</a>
+        <header class="nav nav--centre">
+          <div class="wrap nav__bar">
+            <a class="skip-link" href="#top">Skip to content</a>
+            <a class="nav__logo" href="index.html"><span class="mark mark--initial" aria-hidden="true">G</span>Google Ads School</a>
+            <nav class="nav__links" aria-label="Main">
+              <div class="nav__item"><a class="nav__link" href="index.html#lessons">Latest</a></div>
+              <div class="nav__item"><a class="nav__link" href="updates.html"${cur("updates")}>Every lesson</a></div>
+              <div class="nav__item"><a class="nav__link" href="resources.html"${cur("resources")}>Where to learn</a></div>
+              <div class="nav__item"><a class="nav__link" href="about.html"${cur("about")}>How it works</a></div>
             </nav>
+            <div class="nav__actions"><a class="btn btn--primary" href="${todayUrl}">Read today's lesson</a></div>
+            <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
           </div>
         </header>`;
     }
     const footer = $("site-footer");
     if (footer) {
       footer.outerHTML = `
-        <footer class="site-footer">
+        <footer class="footer site-foot ground-inverse" id="contact">
           <div class="wrap">
-            <div>
-              <a class="brand" href="index.html" style="font-size:16px"><span class="brand-mark"><i></i><i></i><i></i><i></i></span>Google Ads School</a>
-              <p style="max-width:52ch;margin:10px 0 0">A free Google Ads class every morning, researched and written by Claude from the best sources in paid search. Independent and not affiliated with Google. Always verify changes in your own account.</p>
+            <div class="grid">
+              <div class="span-6 stack-4">
+                <a class="nav__logo" href="index.html"><span class="mark mark--initial" aria-hidden="true">G</span>Google Ads School</a>
+                <form class="form gs-sub" action="mailto:hello@googleadsschool.example" method="post" enctype="text/plain" data-endpoint="${esc(CONFIG.subscribeEndpoint || "")}" data-sent="You're subscribed. The next lesson arrives tomorrow morning." novalidate>
+                  <div class="field"><label for="f-email">Email for the daily lesson</label>
+                    <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
+                    <p class="field__error" id="f-email-err" hidden>Write an email address with an @, like name@example.com.</p></div>
+                  <div class="btn-row"><button class="btn btn--secondary" type="submit">Subscribe</button></div>
+                  <p class="form__status" role="status" data-form-status></p>
+                </form>
+              </div>
+              <div class="span-2 footer__col"><h3>Lessons</h3><ul><li><a href="index.html#lessons">Latest</a></li><li><a href="updates.html">Every lesson</a></li></ul></div>
+              <div class="span-2 footer__col"><h3>School</h3><ul><li><a href="about.html">How it works</a></li><li><a href="resources.html">Where to learn</a></li></ul></div>
+              <div class="span-2 footer__col"><h3>View</h3><ul><li><button class="gs-theme" type="button" data-theme-toggle>Dark</button></li></ul></div>
             </div>
-            <nav aria-label="Footer">
-              <a href="index.html#latest">Lessons</a>
-              <a href="updates.html">What's new</a>
-              <a href="resources.html">Where to learn</a>
-              <a href="about.html">How it works</a>
-              <a href="#join">Join free</a>
-            </nav>
+            <div class="footer__legal">
+              <span>&copy; 2026 Google Ads School. Independent, not affiliated with Google.</span>
+              <span>Product names and logos are trademarks of their owners.</span>
+            </div>
           </div>
         </footer>
         <div class="toast" id="toast" role="status" aria-live="polite"></div>`;
     }
-    // "Join free" goes to the page's own subscribe form when it has one.
-    document.querySelectorAll('a[href="#join"]').forEach((a) => {
-      if (!$("join")) a.href = "index.html#join";
-    });
-    if (page) document.querySelectorAll(".nav a").forEach((a) => a.getAttribute("href") === `${page}.html` && a.setAttribute("aria-current", "page"));
   }
 
   function toast(msg) {
@@ -107,23 +116,26 @@
     t._h = setTimeout(() => t.classList.remove("show"), 2600);
   }
 
-  function initTheme() {
-    const saved = store.get("gas.theme", null);
-    if (saved) document.documentElement.dataset.theme = saved;
-    const btn = $("theme-toggle");
+  // The tone switch (theme.js sets the tone before the first paint).
+  function initTone() {
+    const btn = document.querySelector("[data-theme-toggle]");
     if (!btn) return;
+    const paint = () => (btn.textContent = document.documentElement.dataset.tone === "dark" ? "Light" : "Dark");
+    paint();
     btn.addEventListener("click", () => {
-      const isDark =
-        document.documentElement.dataset.theme === "dark" ||
-        (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
-      const next = isDark ? "light" : "dark";
-      document.documentElement.dataset.theme = next;
-      store.set("gas.theme", next);
+      const dark = document.documentElement.dataset.tone !== "dark";
+      if (dark) document.documentElement.dataset.tone = "dark";
+      else delete document.documentElement.dataset.tone;
+      try {
+        localStorage.setItem("gas.tone", dark ? "dark" : "light");
+      } catch {}
+      paint();
     });
   }
 
-  // ---------- Community backend (remote API, or this-browser preview) ----------
+  // ---------- community backend (remote API, or this-browser preview)
   const api = CONFIG.apiBase ? CONFIG.apiBase.replace(/\/$/, "") : "";
+  const post = (path, body) => fetch(`${api}/${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then((r) => r.json());
   const community = {
     live: !!api,
     async reactions(slug) {
@@ -133,89 +145,28 @@
     },
     async react(slug, vote) {
       store.set("gas.vote." + slug, vote);
-      if (api) return (await fetch(`${api}/reactions`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug, vote }) })).json();
-      return this.reactions(slug);
+      return api ? post("reactions", { slug, vote }) : this.reactions(slug);
     },
     async comments(slug) {
       if (api) return (await fetch(`${api}/comments?slug=${encodeURIComponent(slug)}`)).json();
       return store.get("gas.comments." + slug, []);
     },
     async comment(slug, c) {
-      if (api) return (await fetch(`${api}/comments`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug, ...c }) })).json();
+      if (api) return post("comments", { slug, ...c });
       const saved = { ...c, at: new Date().toISOString() };
       store.set("gas.comments." + slug, [saved, ...store.get("gas.comments." + slug, [])]);
       return saved;
     },
-    async subscribe(email, name) {
-      if (api) {
-        const r = await fetch(`${api}/subscribe`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, name }) });
-        if (!r.ok) throw new Error("Subscribe failed");
-        return;
-      }
-      store.set("gas.member", { email, name, at: new Date().toISOString() });
-    },
   };
 
-  // ---------- Subscribe forms ----------
-  function subscribeBand() {
-    return `
-      <section class="subscribe" id="join" aria-labelledby="join-title">
-        <div style="position:relative;z-index:1">
-          <div class="eyebrow">Free membership</div>
-          <h2 id="join-title">Become a Google Ads School member</h2>
-          <p>One sharp lesson in your inbox every morning. What changed in Google Ads, what it means, and exactly what to do about it.</p>
-          <ul>
-            <li>Daily lesson at 6:00 AM, about 7 minutes to read</li>
-            <li>Verified news from Google and top practitioners</li>
-            <li>Worked examples, videos and a quick quiz</li>
-          </ul>
-        </div>
-        <form class="sub-form" data-subscribe novalidate>
-          <label for="sub-name">First name</label>
-          <input id="sub-name" name="name" autocomplete="given-name" placeholder="Alex">
-          <label for="sub-email">Email</label>
-          <input id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
-          <button class="btn" type="submit">Join for free →</button>
-          <small>Free forever. One email a day. Unsubscribe anytime.</small>
-        </form>
-      </section>`;
-  }
-
-  function wireSubscribe(root = document) {
-    root.querySelectorAll("form[data-subscribe]").forEach((form) => {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const email = form.email.value.trim();
-        const name = form.name ? form.name.value.trim() : "";
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          form.email.focus();
-          toast("Please enter a valid email address");
-          return;
-        }
-        try {
-          await community.subscribe(email, name);
-          form.innerHTML = `<div class="ok"><b>Welcome to the school${name ? ", " + esc(name) : ""}! 🎉</b><br>${
-            community.live ? "Your first lesson arrives tomorrow morning." : "You're on the list. (Preview mode: emails start once the school goes online.)"
-          }</div>`;
-        } catch {
-          toast("Something went wrong. Please try again.");
-        }
-      });
-    });
-  }
-
-  // ---------- Cards ----------
+  // ---------- lesson cards (the same card as the home page)
   function card(l) {
+    const [color, icon] = tstyle(l.track);
     return `
-      <a class="card" href="${lessonUrl(l.slug)}" style="--tc:${tc(l.track)}">
-        <div class="badges">
-          ${l.date === TODAY ? '<span class="badge new">NEW</span>' : ""}
-          <span class="badge track" style="--tc:${tc(l.track)}">${esc(l.track)}</span>
-          <span class="badge">${esc(l.level)}</span>
-        </div>
-        <h3>${esc(l.title)}</h3>
-        <p>${esc(l.summary)}</p>
-        <div class="meta"><span>${fmtDate(l.date)} · ${l.minutes} min</span><span class="read">Read →</span></div>
+      <a class="card card--open card--row span-4 gs-lesson" href="${lessonUrl(l.slug)}" style="--tc:${color}">
+        <div class="panel gs-cover"><span class="gs-cover__icon" style="-webkit-mask-image:url(assets/icons/ui-${icon}.svg);mask-image:url(assets/icons/ui-${icon}.svg)"></span><span class="gs-cover__track">${esc(l.track)}</span></div>
+        <h3>${esc(l.title.split(":")[0])}</h3>
+        <p>${l.date === TODAY ? '<span class="gs-new">New</span>' : ""}${fmtDate(l.date, { month: "short", day: "numeric" })} · ${esc(l.level)} · ${l.minutes} min</p>
       </a>`;
   }
 
@@ -223,7 +174,7 @@
     return days
       .map(
         (d) => `
-      <div class="day ${d.date === TODAY ? "today" : ""}">
+      <div class="day">
         <div class="day-label"><b>${relDay(d.date)}</b><span>${fmtDate(d.date, { month: "long", day: "numeric", year: "numeric" })}</span></div>
         <ul>${d.items
           .map(
@@ -240,51 +191,25 @@
       .join("");
   }
 
-  // ---------- Index ----------
-  function renderIndex() {
-    const latest = LESSONS[0];
-    const lastUpdate = UPDATES[0];
-    if (lastUpdate) {
-      const day = lastUpdate.date === TODAY ? "today" : lastUpdate.date === YESTERDAY ? "yesterday" : "on " + fmtDate(lastUpdate.date);
-      const added = lastUpdate.items.filter((i) => i.type === "added").length;
-      const updated = lastUpdate.items.length - added;
-      const parts = [added && `${added} new lesson${added > 1 ? "s" : ""}`, updated && `${updated} updated`].filter(Boolean);
-      $("live").textContent = `Updated ${day} · ${parts.join(", ")}`;
-    } else {
-      $("live").textContent = "First class publishes at 6:00 AM";
-    }
-    $("proof-lessons").textContent = LESSONS.length;
-    $("proof-tracks").textContent = new Set(LESSONS.map((l) => l.track)).size;
-
-    const featured = $("featured");
-    if (latest) {
-      featured.href = lessonUrl(latest.slug);
-      featured.innerHTML = `
-        <div class="kicker">
-          <span class="eyebrow">${latest.date === TODAY ? "Today's lesson" : "Latest lesson"} · ${fmtDate(latest.date, { month: "short", day: "numeric" })}</span>
-          <span class="badge">${latest.minutes} min read</span>
-        </div>
-        <div class="badges"><span class="badge track" style="--tc:${tc(latest.track)}">${esc(latest.track)}</span><span class="badge">${esc(latest.level)}</span></div>
-        <h2>${esc(latest.title)}</h2>
-        <p>${esc(latest.summary)}</p>
-        <div class="inside"><span>What changed</span><span>Worked example</span><span>Expert debate</span><span>Videos &amp; quiz</span></div>
-        <div class="go"><span>Start the lesson</span><span>→</span></div>`;
-      $("hero-read").href = lessonUrl(latest.slug);
-    } else {
-      featured.outerHTML = `<div class="empty">No lessons yet. The first class publishes at 6:00 AM.</div>`;
-    }
-
-    $("updates").innerHTML = UPDATES.length ? updatesList(UPDATES.slice(0, 3)) : `<div class="empty">Nothing here yet.</div>`;
-
-    // Lessons grid with track/level/search filters.
+  // ---------- every lesson + the changelog
+  function renderUpdates() {
     const state = { track: "All", level: "All", q: "" };
     const counts = Object.fromEntries(TRACKS.map((t) => [t, LESSONS.filter((l) => l.track === t).length]));
     const chips = $("track-chips");
-    function drawChips() {
-      chips.innerHTML = ["All", ...TRACKS.filter((t) => counts[t])]
-        .map((t) => `<button class="chip" aria-pressed="${t === state.track}" data-track="${esc(t)}">${esc(t)}${t === "All" ? "" : ` · ${counts[t]}`}</button>`)
-        .join("");
-    }
+    const drawChips = () =>
+      (chips.innerHTML = ["All", ...TRACKS.filter((t) => counts[t])]
+        .map((t) => `<button class="chip" type="button" aria-pressed="${t === state.track}" data-track="${esc(t)}">${esc(t)}${t === "All" ? "" : ` · ${counts[t]}`}</button>`)
+        .join(""));
+    const draw = () => {
+      const list = LESSONS.filter(
+        (l) =>
+          (state.track === "All" || l.track === state.track) &&
+          (state.level === "All" || l.level === state.level) &&
+          (!state.q || [l.title, l.summary, l.track, ...l.tags].join(" ").toLowerCase().includes(state.q))
+      );
+      $("grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty">No lessons match those filters yet. A new one is published every morning.</div>`;
+      $("count").textContent = `${list.length} of ${LESSONS.length} lessons`;
+    };
     chips.addEventListener("click", (e) => {
       const b = e.target.closest("[data-track]");
       if (!b) return;
@@ -300,76 +225,35 @@
       state.q = e.target.value.toLowerCase().trim();
       draw();
     });
-    function draw() {
-      const list = LESSONS.filter(
-        (l) =>
-          (state.track === "All" || l.track === state.track) &&
-          (state.level === "All" || l.level === state.level) &&
-          (!state.q || [l.title, l.summary, l.track, ...l.tags].join(" ").toLowerCase().includes(state.q))
-      );
-      $("grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty">No lessons match those filters yet. New ones arrive every morning.</div>`;
-    }
+    const fromHash = decodeURIComponent(location.hash.slice(1));
+    if (counts[fromHash]) state.track = fromHash;
     drawChips();
     draw();
-
-    // Track tiles jump to the filtered grid.
-    $("tracks").innerHTML = TRACKS.map((t) => {
-      const [color, icon] = TRACK_STYLE[t] || ["#4285f4", "•"];
-      const n = counts[t] || 0;
-      return `<button class="track-tile" style="--tc:${color}" data-track="${esc(t)}" ${n ? "" : "disabled"}>
-        <span class="dot">${icon}</span><b>${esc(t)}</b><small>${n ? `${n} lesson${n > 1 ? "s" : ""}` : "Coming soon"}</small></button>`;
-    }).join("");
-    $("tracks").addEventListener("click", (e) => {
-      const b = e.target.closest("[data-track]");
-      if (!b || b.disabled) return;
-      state.track = b.dataset.track;
-      drawChips();
-      draw();
-      $("latest").scrollIntoView({ behavior: "smooth" });
-    });
-
-    // Top resources.
-    const top = (window.SCHOOL_RESOURCES || []).flatMap((g) => g.items.filter((i) => i.top).map((i) => ({ ...i, color: g.color })));
-    $("top-resources").innerHTML = top.map(resourceCard).join("");
-
-    $("join-slot").outerHTML = subscribeBand();
-    wireSubscribe();
+    $("updates").innerHTML = UPDATES.length ? updatesList(UPDATES) : `<div class="empty">Nothing here yet.</div>`;
   }
 
-  function resourceCard(r) {
-    return `<a class="res" href="${esc(r.url)}" target="_blank" rel="noopener" style="--tc:${r.color}">
-      <span class="kind">${esc(r.kind)}</span><b>${esc(r.name)} ↗</b><p>${esc(r.desc)}</p><span class="why">Why: ${esc(r.why)}</span></a>`;
-  }
-
-  // ---------- Resources page ----------
+  // ---------- where to learn
   function renderResources() {
     $("resource-groups").innerHTML = (window.SCHOOL_RESOURCES || [])
       .map(
         (g) => `
-      <section class="res-group" style="--tc:${g.color}">
+      <section class="res-group" style="--tc:${g.color}" aria-label="${esc(g.group)}">
         <h2>${esc(g.group)}</h2>
         <p>${esc(g.blurb)}</p>
-        <div class="resources">${g.items.map((i) => resourceCard({ ...i, color: g.color })).join("")}</div>
+        <div class="grid">${g.items
+          .map(
+            (r) => `
+          <a class="card res span-4" href="${esc(r.url)}" target="_blank" rel="noopener">
+            <span class="kind">${esc(r.kind)}</span><b>${esc(r.name)} ↗</b><p>${esc(r.desc)}</p><span class="why">Why: ${esc(r.why)}</span>
+          </a>`
+          )
+          .join("")}</div>
       </section>`
       )
       .join("");
-    $("join-slot").outerHTML = subscribeBand();
-    wireSubscribe();
   }
 
-  // ---------- Updates page ----------
-  function renderUpdates() {
-    $("updates").innerHTML = UPDATES.length ? updatesList(UPDATES) : `<div class="empty">Nothing here yet.</div>`;
-    $("join-slot").outerHTML = subscribeBand();
-    wireSubscribe();
-  }
-
-  function renderAbout() {
-    $("join-slot").outerHTML = subscribeBand();
-    wireSubscribe();
-  }
-
-  // ---------- Lesson page ----------
+  // ---------- a lesson
   // Custom fenced blocks: ```youtube (ID | Title | Channel per line) and ```quiz (JSON array).
   function extractBlocks(md) {
     const blocks = [];
@@ -388,13 +272,13 @@
         const [id, title = "Watch on YouTube", channel = ""] = line.split("|").map((s) => s.trim());
         return `
         <div class="video">
-          <button class="video-frame" data-yt="${esc(id)}" aria-label="Play: ${esc(title)}">
+          <button class="video-frame" type="button" data-yt="${esc(id)}" aria-label="Play: ${esc(title)}">
             <img src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" alt="" loading="lazy">
             <span class="play"><span>▶</span></span>
           </button>
           <div class="video-info">
             <b>${esc(title)}</b>
-            <span>${esc(channel)} · <a href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener">YouTube ↗</a></span>
+            <span>${esc(channel)} · <a href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener">Open on YouTube</a></span>
           </div>
         </div>`;
       })
@@ -425,14 +309,14 @@
         (q, i) => `
       <div class="quiz-q" data-answer="${q.answer}">
         <p>${i + 1}. ${esc(q.q)}</p>
-        ${order(q).map((j) => `<button class="quiz-opt" data-i="${j}">${esc(q.options[j])}</button>`).join("")}
+        ${order(q).map((j) => `<button class="quiz-opt" type="button" data-i="${j}">${esc(q.options[j])}</button>`).join("")}
         ${q.why ? `<p class="quiz-why">${esc(q.why)}</p>` : ""}
       </div>`
       )
-      .join("")}<div class="quiz-score"></div></div>`;
+      .join("")}<div class="quiz-score" role="status"></div></div>`;
   }
 
-  // Group content under special h2s into styled panels, and turn [!TAG] blockquotes into callouts.
+  // Group content under special h2s into panels, and turn [!TAG] blockquotes into callouts.
   function enhance(root) {
     const sections = { "in 30 seconds": "tldr", "where the experts disagree": "debate" };
     [...root.querySelectorAll("h2")].forEach((h) => {
@@ -462,7 +346,6 @@
       div.innerHTML = `<div class="callout-title">${label}</div>${bq.innerHTML}`;
       bq.replaceWith(div);
     });
-    // "Our take:" paragraphs become a highlighted verdict.
     root.querySelectorAll("p").forEach((p) => {
       if (/^\s*<strong>Our take:?<\/strong>/i.test(p.innerHTML)) {
         const div = document.createElement("div");
@@ -486,46 +369,46 @@
       .map((x) => x.l);
   }
 
-  const AVATAR_COLORS = ["#4285f4", "#ea4335", "#fbbc05", "#34a853"];
+  const AVATAR_COLORS = ["#4285f4", "#ea4335", "#f9ab00", "#34a853"];
   function commentHtml(c) {
     const name = c.name || "Anonymous";
     const color = AVATAR_COLORS[[...name].reduce((a, ch) => a + ch.charCodeAt(0), 0) % 4];
-    const when = c.at ? new Date(c.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "";
-    return `<li class="comment"><span class="avatar" style="--ac:${color}">${esc(name[0].toUpperCase())}</span>
-      <div><div class="who"><b>${esc(name)}</b>${c.stance ? `<span class="pill ${esc(c.stance)}">${esc(c.stance)}</span>` : ""}<time>${esc(when)}</time></div>
+    const when = c.at ? new Date(c.at).toLocaleDateString("en", { month: "short", day: "numeric" }) : "";
+    return `<li class="comment"><span class="avatar" style="--ac:${color}" aria-hidden="true">${esc(name[0].toUpperCase())}</span>
+      <div><div class="who"><b>${esc(name)}</b>${c.stance ? `<span class="pill-s ${esc(c.stance)}">${esc(c.stance)}</span>` : ""}<time>${esc(when)}</time></div>
       <p>${esc(c.text)}</p></div></li>`;
   }
 
-  async function renderCommunity(lesson) {
+  function renderCommunity(lesson) {
     const box = $("community");
     box.innerHTML = `
       <div class="take-box">
-        <div class="eyebrow">Your take</div>
         <h2>Do you agree with this lesson?</h2>
-        <p>Vote, then tell everyone why. The best disagreements make the next lesson better.</p>
+        <p>Vote, then say why below. A good disagreement can change the next lesson.</p>
         <div class="vote-row">
-          <button class="vote agree" data-vote="agree" aria-pressed="false"><span class="emoji">👍</span> Agree <span class="count" id="n-agree">0</span></button>
-          <button class="vote disagree" data-vote="disagree" aria-pressed="false"><span class="emoji">👎</span> Disagree <span class="count" id="n-disagree">0</span></button>
+          <button class="vote agree" type="button" data-vote="agree" aria-pressed="false">👍 Agree <span class="count" id="n-agree">0</span></button>
+          <button class="vote disagree" type="button" data-vote="disagree" aria-pressed="false">👎 Disagree <span class="count" id="n-disagree">0</span></button>
         </div>
         <div class="meter" aria-hidden="true"><i id="meter" style="width:50%"></i></div>
         <div class="meter-label"><span id="pct-agree">No votes yet</span><span id="pct-disagree"></span></div>
       </div>
       <div class="comments">
-        <h3>Discussion <span id="n-comments" style="color:var(--muted);font-weight:500"></span></h3>
+        <h3>Discussion <span id="n-comments" class="muted"></span></h3>
         <form class="comment-form" id="comment-form" novalidate>
           <div class="row">
-            <input name="name" placeholder="Your name" maxlength="60" autocomplete="name" aria-label="Your name">
-            <div class="stance" role="group" aria-label="Your stance">
-              <button type="button" data-v="agree" aria-pressed="false">👍 Agree</button>
-              <button type="button" data-v="mixed" aria-pressed="false">🤔 Mixed</button>
-              <button type="button" data-v="disagree" aria-pressed="false">👎 Disagree</button>
-            </div>
+            <div><label for="c-name">Your name</label><input id="c-name" name="name" maxlength="60" autocomplete="name"></div>
+            <div><span class="comment-form__label" id="c-stance-l" style="font-size:14px;font-weight:500">Your stance</span>
+              <div class="stance" role="group" aria-labelledby="c-stance-l">
+                <button type="button" data-v="agree" aria-pressed="false">Agree</button>
+                <button type="button" data-v="mixed" aria-pressed="false">Mixed</button>
+                <button type="button" data-v="disagree" aria-pressed="false">Disagree</button>
+              </div></div>
           </div>
-          <textarea name="text" placeholder="What's your experience? Share a test, a result, or why you see it differently…" maxlength="2000" aria-label="Your comment"></textarea>
-          <div class="actions"><small>Be specific and kind. Numbers beat opinions.</small><button class="btn" type="submit">Post comment</button></div>
+          <div><label for="c-text">Your comment</label><textarea id="c-text" name="text" maxlength="2000"></textarea></div>
+          <div class="actions"><small>Share a test, a result or a reason. Numbers help.</small><button class="btn btn--secondary" type="submit">Post comment</button></div>
         </form>
         <ul class="comment-list" id="comment-list"></ul>
-        ${community.live ? "" : `<div class="preview-note">Preview mode: votes and comments are saved in this browser only. They'll be shared with everyone once the school goes online.</div>`}
+        ${community.live ? "" : `<p class="preview-note">Preview: votes and comments are saved in this browser only until the school has a comment service.</p>`}
       </div>`;
 
     const paint = (r, mine) => {
@@ -534,7 +417,7 @@
       $("n-disagree").textContent = r.disagree;
       const pct = total ? Math.round((r.agree / total) * 100) : 50;
       $("meter").style.width = pct + "%";
-      $("pct-agree").textContent = total ? `${pct}% agree` : "No votes yet. Be the first.";
+      $("pct-agree").textContent = total ? `${pct}% agree` : "No votes yet";
       $("pct-disagree").textContent = total ? `${100 - pct}% disagree · ${total} vote${total > 1 ? "s" : ""}` : "";
       box.querySelectorAll(".vote").forEach((b) => b.setAttribute("aria-pressed", b.dataset.vote === mine));
     };
@@ -545,9 +428,9 @@
         mine = mine === b.dataset.vote ? null : b.dataset.vote;
         try {
           paint(await community.react(lesson.slug, mine), mine);
-          if (mine) toast("Thanks! Now tell us why below 👇");
+          if (mine) toast("Vote saved. Say why in the discussion.");
         } catch {
-          toast("Couldn't save your vote. Try again.");
+          toast("The vote didn't save. Try again.");
         }
       })
     );
@@ -563,11 +446,14 @@
     const list = $("comment-list");
     const setCount = (n) => ($("n-comments").textContent = n ? `· ${n}` : "");
     let all = [];
-    community.comments(lesson.slug).then((cs) => {
-      all = cs || [];
-      list.innerHTML = all.map(commentHtml).join("");
-      setCount(all.length);
-    }).catch(() => {});
+    community
+      .comments(lesson.slug)
+      .then((cs) => {
+        all = cs || [];
+        list.innerHTML = all.map(commentHtml).join("");
+        setCount(all.length);
+      })
+      .catch(() => {});
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const text = form.text.value.trim();
@@ -577,24 +463,24 @@
         return;
       }
       try {
-        const saved = await community.comment(lesson.slug, { name: form.name.value.trim() || "Anonymous", stance, text });
+        const saved = await community.comment(lesson.slug, { name: form.elements.name.value.trim() || "Anonymous", stance, text });
         all = [saved, ...all];
         list.insertAdjacentHTML("afterbegin", commentHtml(saved));
         setCount(all.length);
         form.text.value = "";
         toast("Comment posted");
       } catch {
-        toast("Couldn't post your comment. Try again.");
+        toast("The comment didn't post. Try again.");
       }
     });
   }
 
   function renderLesson() {
-    const slug = new URLSearchParams(location.search).get("l");
+    const slug = new URLSearchParams(location.search).get("l") || (LESSONS[0] && LESSONS[0].slug);
     const pos = LESSONS.findIndex((l) => l.slug === slug);
-    const main = $("lesson");
+    const main = $("top");
     if (pos < 0) {
-      main.innerHTML = `<div class="empty" style="margin:48px 0">Lesson not found. <a href="index.html">See today's lesson</a></div>`;
+      main.innerHTML = `<div class="page"><div class="wrap"><div class="empty">Lesson not found. <a class="link" href="index.html">See today's lesson</a></div></div></div>`;
       return;
     }
 
@@ -609,18 +495,19 @@
       });
       enhance(article);
 
+      const color = tstyle(lesson.track)[0];
       const updated = lesson.updated && lesson.updated !== lesson.date ? ` · <b>Updated ${fmtDate(lesson.updated)}</b>` : "";
       $("head").innerHTML = `
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="index.html#latest">${esc(lesson.track)}</a></nav>
-        <div class="badges" style="margin-top:18px">
-          ${lesson.date === TODAY ? '<span class="badge new">NEW TODAY</span>' : ""}
-          <span class="badge track" style="--tc:${tc(lesson.track)}">${esc(lesson.track)}</span>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="updates.html#${encodeURIComponent(lesson.track)}">${esc(lesson.track)}</a></nav>
+        <div class="badges">
+          ${lesson.date === TODAY ? '<span class="badge new">New today</span>' : ""}
+          <span class="badge track" style="--tc:${color}">${esc(lesson.track)}</span>
           <span class="badge">${esc(lesson.level)}</span>
-          ${lesson.tags.map((t) => `<span class="badge">#${esc(t)}</span>`).join("")}
+          ${lesson.tags.map((t) => `<span class="badge">${esc(t)}</span>`).join("")}
         </div>
         <h1>${esc(lesson.title)}</h1>
         <p class="summary">${esc(lesson.summary)}</p>
-        <div class="meta"><span>Published <b>${fmtDate(lesson.date, { weekday: "short", month: "long", day: "numeric", year: "numeric" })}</b>${updated}</span><span>${lesson.minutes} min read</span><button class="share" id="share">🔗 Copy link</button></div>`;
+        <div class="meta"><span>Published <b>${fmtDate(lesson.date, { weekday: "short", month: "long", day: "numeric", year: "numeric" })}</b>${updated}</span><span>${lesson.minutes} min read</span><button class="share" type="button" id="share">Copy link</button></div>`;
       $("share").onclick = async () => {
         try {
           await navigator.clipboard.writeText(location.href);
@@ -634,7 +521,7 @@
       const heads = [...article.querySelectorAll("h2")];
       heads.forEach((h, i) => (h.id = "s" + i + "-" + h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)));
       const toc = $("toc-links");
-      toc.innerHTML = heads.map((h) => `<a href="#${h.id}">${esc(h.textContent)}</a>`).join("") + `<a href="#community">Your take &amp; discussion</a>`;
+      toc.innerHTML = heads.map((h) => `<a href="#${h.id}">${esc(h.textContent)}</a>`).join("") + `<a href="#community">Your take and discussion</a>`;
       const tocLinks = [...toc.querySelectorAll("a")];
       if ("IntersectionObserver" in window && heads.length) {
         const io = new IntersectionObserver(
@@ -648,31 +535,31 @@
 
       const rel = related(lesson);
       $("related").innerHTML = rel.length
-        ? `<div class="section-head"><div><div class="eyebrow">Keep learning</div><h2>Where to go next</h2></div><a class="link-arrow" href="index.html#latest">Browse every lesson →</a></div>
-           <div class="grid">${rel.map(card).join("")}</div>`
+        ? `<div class="block-head"><h2>Where to go next</h2><a class="link" href="updates.html">See every lesson</a></div><div class="grid">${rel.map(card).join("")}</div>`
         : "";
       const newer = LESSONS[pos - 1];
       const older = LESSONS[pos + 1];
       $("pager").innerHTML =
-        (older ? `<a href="${lessonUrl(older.slug)}"><span>← Previous lesson</span>${esc(older.title)}</a>` : "<div></div>") +
-        (newer ? `<a class="next" href="${lessonUrl(newer.slug)}"><span>Next lesson →</span>${esc(newer.title)}</a>` : "");
-      $("join-slot").outerHTML = subscribeBand();
-      wireSubscribe();
+        (older ? `<a href="${lessonUrl(older.slug)}"><span>Previous lesson</span>${esc(older.title)}</a>` : "<div></div>") +
+        (newer ? `<a class="next" href="${lessonUrl(newer.slug)}"><span>Next lesson</span>${esc(newer.title)}</a>` : "");
       if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
     };
 
     // Reading progress bar.
     const bar = $("progress");
-    const onScroll = () => {
-      const art = $("article");
-      const total = art.offsetTop + art.offsetHeight - innerHeight;
-      bar.style.width = Math.min(100, Math.max(0, (scrollY / Math.max(total, 1)) * 100)) + "%";
-    };
-    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener(
+      "scroll",
+      () => {
+        const art = $("article");
+        const total = art.offsetTop + art.offsetHeight - innerHeight;
+        bar.style.width = Math.min(100, Math.max(0, (scrollY / Math.max(total, 1)) * 100)) + "%";
+      },
+      { passive: true }
+    );
 
     const s = document.createElement("script");
     s.src = `data/lessons/${encodeURIComponent(slug)}.js`;
-    s.onerror = () => (main.innerHTML = `<div class="empty" style="margin:48px 0">Couldn't load this lesson.</div>`);
+    s.onerror = () => (main.innerHTML = `<div class="page"><div class="wrap"><div class="empty">This lesson couldn't load.</div></div></div>`);
     document.body.appendChild(s);
   }
 
@@ -700,14 +587,14 @@
       if (done.length === +quiz.dataset.total) {
         const score = [...done].filter((x) => x.dataset.right === "true").length;
         const el = quiz.querySelector(".quiz-score");
-        el.textContent = `You scored ${score}/${quiz.dataset.total}. ${score === +quiz.dataset.total ? "Perfect! 🎯" : "Scroll up to review, then tell us your take below."}`;
+        el.textContent = `You scored ${score} of ${quiz.dataset.total}. ${score === +quiz.dataset.total ? "All correct." : "Scroll up to review, then add your take below."}`;
         el.style.display = "block";
       }
     }
   });
 
   renderChrome();
-  initTheme();
+  initTone();
   const page = document.body.dataset.page;
-  ({ index: renderIndex, lesson: renderLesson, resources: renderResources, updates: renderUpdates, about: renderAbout }[page] || (() => {}))();
+  ({ lesson: renderLesson, updates: renderUpdates, resources: renderResources }[page] || (() => {}))();
 })();

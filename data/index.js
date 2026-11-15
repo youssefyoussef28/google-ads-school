@@ -15,7 +15,12 @@ window.SCHOOL_INDEX = [
    "tag gateway",
    "measurement"
   ],
-  "minutes": 6
+  "minutes": 6,
+  "tldr": [
+   "Google Ads now has a Data Strength Uplift metric: an estimate of the % of extra conversions your account reported over the last 14 days thanks to enhanced conversions for leads, Google tag gateway and multi-source Data Manager connections.",
+   "It is Google's own estimate, labeled directional, with no published formula. It shows only at +1% or more, is capped at \">50%\", and does not affect billing or Smart Bidding.",
+   "\"Recovered\" means previously unmeasured, not new sales. Use it to confirm your tracking is healthy, then verify against your CRM or order data."
+  ]
  },
  {
   "slug": "2026-11-07-ai-review-summaries-in-search-ads",
@@ -33,7 +38,12 @@ window.SCHOOL_INDEX = [
    "ad copy",
    "Search"
   ],
-  "minutes": 7
+  "minutes": 7,
+  "tldr": [
+   "Google can now add an AI-written, positive-only review summary to your Search ads in English in the US, UK, Australia and India. You can't edit the text.",
+   "Google says it shows only when predicted to improve performance, but it has published no results, and the help page describes no opt-out.",
+   "The practical lesson: your reviews across the web are now part of your ad. Fix your review footprint, and don't repeat in headlines what the summary will say for you."
+  ]
  },
  {
   "slug": "2026-11-06-ai-max-copy-preview",
@@ -51,7 +61,12 @@ window.SCHOOL_INDEX = [
    "text guidelines",
    "final URL"
   ],
-  "minutes": 6
+  "minutes": 6,
+  "tldr": [
+   "You can now preview up to 10 sample AI-written headlines and descriptions for a landing page before turning on AI Max text customization. Viewing them doesn't require opting in.",
+   "The preview is a sample, not a promise: the live ads may use different text.",
+   "Check each sample for accuracy, brand voice and offer conditions (like a \"free delivery\" claim that only applies over a minimum order). Use text guidelines to steer the writing."
+  ]
  },
  {
   "slug": "2026-11-05-offline-conversions-seven-day-rule",
@@ -69,7 +84,12 @@ window.SCHOOL_INDEX = [
    "GCLID",
    "lead gen"
   ],
-  "minutes": 6
+  "minutes": 6,
+  "tldr": [
+   "Google's attribution documentation says offline conversions uploaded more than 7 days after the event are bypassed by the attribution modeling calculations, while standard report columns still record them.",
+   "That means your Model Comparison view and attribution reports can disagree with your campaign columns, and slow uploads may weaken the data that feeds data-driven attribution and automated bidding.",
+   "Fix it by uploading offline conversions daily (or at least well under 7 days), and don't use attribution reports alone to move budget."
+  ]
  },
  {
   "slug": "2026-11-04-ai-max-search-terms-and-ad-combinations",
@@ -87,7 +107,12 @@ window.SCHOOL_INDEX = [
    "reporting",
    "Search"
   ],
-  "minutes": 7
+  "minutes": 7,
+  "tldr": [
+   "The \"Search terms and ad combinations\" view shows, per row, the search term, the headline, description and landing page that served, plus the campaign and ad group.",
+   "Newer versions reportedly add four source columns telling you whether the match, landing page, headline and description came from AI Max or from you.",
+   "Use it weekly to spot mismatches between what people searched and what your ad said, then add negative keywords or negative URLs. Wait 2 weeks after enabling AI Max before changing anything."
+  ]
  },
  {
   "slug": "2026-11-03-ads-in-ai-mode-go-global",
@@ -105,7 +130,12 @@ window.SCHOOL_INDEX = [
    "match types",
    "Search"
   ],
-  "minutes": 7
+  "minutes": 7,
+  "tldr": [
+   "Ads in Google's AI Mode are now live in 10 more countries (including Canada, Australia, India and Singapore), with the UK, Brazil and Mexico next. Your Search, Shopping and PMax campaigns are automatically eligible, with no opt-out and no separate reporting.",
+   "Ads get in two ways: direct (the question is commercial) and contextual (buying intent appears in the AI's answer). Exact and phrase match only qualify for direct.",
+   "Before you widen matching, harden negatives, check Final URL Expansion, and test with a proper experiment."
+  ]
  },
  {
   "slug": "2026-11-03-how-the-google-ads-auction-works",
@@ -123,7 +153,12 @@ window.SCHOOL_INDEX = [
    "auction",
    "fundamentals"
   ],
-  "minutes": 6
+  "minutes": 6,
+  "tldr": [
+   "Google runs an auction for every single search. Your position comes from Ad Rank, not just your bid.",
+   "Ad Rank blends your bid, your ad and landing page quality, minimum thresholds, competition, the search context and the expected impact of your assets.",
+   "You usually pay less than your max bid: roughly the minimum needed to beat the advertiser below you. Better quality means a lower price for the same spot."
+  ]
  },
  {
   "slug": "2026-11-03-channel-prioritization-budget-caps",
@@ -141,7 +176,12 @@ window.SCHOOL_INDEX = [
    "channel controls",
    "Performance Max"
   ],
-  "minutes": 6
+  "minutes": 6,
+  "tldr": [
+   "You can now rank channels (Google Search, Search partners, Display Network and others) as High or Low priority, and give Low-priority channels a daily % cap.",
+   "Priority only changes anything when your campaign is limited by budget. A tCPA/tROAS campaign with headroom will barely notice.",
+   "The cap is best-effort, not a hard ceiling. And in February 2027, Search campaigns with Display expansion move to this new system automatically."
+  ]
  },
  {
   "slug": "2026-11-03-customer-match-encrypted-uploads",
@@ -159,7 +199,12 @@ window.SCHOOL_INDEX = [
    "first-party data",
    "privacy"
   ],
-  "minutes": 6
+  "minutes": 6,
+  "tldr": [
+   "From November 16, 2026, Google's Data Manager accepts encrypted customer data by default instead of requiring you to SHA-256 hash it first.",
+   "Hashing is unforgiving: one extra space or capital letter creates a different hash and a silent non-match. Google now does the formatting cleanup inside a secure environment, which should raise match rates.",
+   "It also means Google can read the underlying data during matching. Check your data agreements, record your current match rates, and ask your rep what happens to hashed uploads."
+  ]
  }
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];

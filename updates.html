@@ -1,29 +1,69 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-radius="soft" data-buttons="solid" data-motion>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What's New · Google Ads School</title>
-  <meta name="description" content="Every lesson added or updated at Google Ads School, day by day.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#eef0f3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<style>
+:root {
+  --p-bg: #eef0f3; --p-surface: #e2e5ea; --p-ink: #0b0c0e; --p-muted: #5e5f62;
+  --p-accent: #1a73e8; --p-accent-ink: #ffffff; --p-action: #1a73e8; --p-action-ink: #ffffff;
+  --p-inv-bg: #0b0c0e; --p-inv-surface: #17181a; --p-inv-ink: #eef0f3; --p-inv-muted: #8e8f92;
+  --p-inv-accent: #1a73e8; --p-inv-accent-ink: #ffffff; --p-inv-action: #1a73e8; --p-inv-action-ink: #ffffff;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-text: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+}
+</style>
+<link rel="stylesheet" href="assets/school.css">
+<link rel="stylesheet" href="assets/content.css">
+<script src="assets/theme.js"></script>
+<title>Every lesson · Google Ads School</title>
+<meta name="description" content="Every Google Ads School lesson by track and level, plus a day-by-day log of what was added and updated.">
 </head>
 <body data-page="updates">
-  <div id="site-header"></div>
-  <main class="wrap">
-    <header class="page-head">
-      <div class="eyebrow">Changelog</div>
-      <h1>What's new at the school</h1>
-      <p>A new lesson is added every morning at 6:00 AM. When a lesson is corrected or expanded, it shows up here as updated.</p>
-    </header>
-    <div class="updates" id="updates" style="margin-bottom:56px"></div>
-    <div id="join-slot"></div>
-  </main>
-  <div id="site-footer"></div>
-  <script src="assets/config.js"></script>
-  <script src="data/index.js"></script>
-  <script src="assets/app.js"></script>
+<div id="site-header"></div>
+<main id="top">
+  <div class="page">
+    <div class="wrap">
+      <header class="page-head">
+        <h1>Every lesson</h1>
+        <p>One lesson is added each morning at 6:00 Beirut time. Filter by track or level, or search for a topic.</p>
+      </header>
+      <div class="filters" id="track-chips" aria-label="Filter by track"></div>
+      <div class="filters">
+        <label class="sr-only" for="level">Level</label>
+        <select class="search" id="level" style="width:auto"><option value="All">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+        <label class="sr-only" for="search">Search lessons</label>
+        <input class="search" id="search" type="search" placeholder="Search lessons">
+        <span class="muted" id="count" style="font-size:14px"></span>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+  <div class="page" id="changelog">
+    <div class="wrap">
+      <div class="block-head"><h2>What's new, day by day</h2></div>
+      <div class="updates" id="updates"></div>
+    </div>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="assets/config.js"></script>
+<script src="data/index.js"></script>
+<script src="assets/app.js"></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
 </body>
 </html>

@@ -69,6 +69,10 @@ function parse(file) {
 
   const slug = file.replace(/\.md$/, "");
   const words = body.replace(/```[\s\S]*?```/g, "").split(/\s+/).length;
+  // The "In 30 seconds" bullets as plain text, for previews on the home page.
+  const plain = (s) => s.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/[*_`]/g, "").trim();
+  const tldrBlock = (body.match(/## In 30 seconds\n([\s\S]*?)(?=\n## |$)/) || [])[1] || "";
+  const tldr = tldrBlock.split("\n").filter((l) => /^\s*[-*] /.test(l)).slice(0, 3).map((l) => plain(l.replace(/^\s*[-*] /, "")));
   return {
     slug,
     title: meta.title,
@@ -80,6 +84,7 @@ function parse(file) {
     updateNote: meta.update_note || null,
     tags: (meta.tags || "").split(",").map((t) => t.trim()).filter(Boolean),
     minutes: Math.max(1, Math.round(words / 220)),
+    tldr,
     body,
   };
 }
