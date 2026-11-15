@@ -1,5 +1,23 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-15-data-strength-uplift-metric",
+  "title": "Data Strength Uplift: what Google's new \"recovered conversions\" number really tells you",
+  "date": "2026-11-15",
+  "track": "Measurement & Tracking",
+  "level": "Intermediate",
+  "summary": "Google Ads now estimates how many extra conversions your first-party data setup recovers. Learn what the metric counts, when it shows up, why \"recovered\" does not mean \"incremental\", and how to use it without fooling yourself.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "data strength",
+   "enhanced conversions",
+   "Data Manager",
+   "measurement",
+   "modeled conversions"
+  ],
+  "minutes": 5
+ },
+ {
   "slug": "2026-11-07-ai-review-summaries-in-search-ads",
   "title": "Google is writing review summaries into your Search ads: what you control, what you don't, and how to judge the effect",
   "date": "2026-11-07",
@@ -146,6 +164,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-15",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-15-data-strength-uplift-metric",
+    "title": "Data Strength Uplift: what Google's new \"recovered conversions\" number really tells you",
+    "track": "Measurement & Tracking"
+   }
+  ]
+ },
  {
   "date": "2026-11-07",
   "items": [
