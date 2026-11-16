@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-16-pmax-pay-per-lead-goals",
+  "title": "Pay-per-lead is coming to Performance Max: what changes when you pay for leads instead of clicks",
+  "date": "2026-11-16",
+  "track": "Performance Max",
+  "level": "Intermediate",
+  "summary": "Google is folding Local Services Ads into Performance Max with \"pay-per-lead goals\", and a new terms opt-in started appearing on November 10. Learn how billing, targeting and bidding differ from click-based campaigns, who is eligible, and how to prepare.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "Performance Max",
+   "pay-per-lead",
+   "Local Services Ads",
+   "lead generation",
+   "bidding"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google now documents a Performance Max campaign type with pay-per-lead goals: you are charged for valid leads (calls, and optionally messages and bookings), not clicks.",
+   "It is US-only, keywordless, limited to eligible local-service categories, and defaults to Maximize Conversions, so it is a Local Services Ads replacement, not a lead-gen switch for every advertiser.",
+   "If you run Local Services Ads, export your history, check the auto-generated budget and answer your phone. If you don't, you can skip it, but the \"pay for outcomes\" model is worth understanding."
+  ]
+ },
+ {
   "slug": "2026-11-15-data-strength-uplift-metric",
   "title": "Data Strength Uplift: what Google's new \"recovered conversions\" number tells you (and what it can't)",
   "date": "2026-11-15",
@@ -209,6 +232,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-16",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-16-pmax-pay-per-lead-goals",
+    "title": "Pay-per-lead is coming to Performance Max: what changes when you pay for leads instead of clicks",
+    "track": "Performance Max"
+   }
+  ]
+ },
  {
   "date": "2026-11-15",
   "items": [
