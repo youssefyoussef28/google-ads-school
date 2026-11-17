@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-17-ai-max-valuetrack-search-term-matchtype",
+  "title": "Was that \"exact match\" click really AI Max? How the new {search_term_matchtype} parameter exposes it",
+  "date": "2026-11-17",
+  "track": "Measurement & Tracking",
+  "level": "Advanced",
+  "summary": "Google's ValueTrack help now lists a {search_term_matchtype} parameter that marks clicks coming from AI Max expansions, even when they arrive under an exact or phrase keyword. Learn how it differs from {matchtype}, how to split your traffic into clean buckets, and what's still unconfirmed.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "AI Max",
+   "ValueTrack",
+   "tracking templates",
+   "match types",
+   "analytics"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "A new ValueTrack parameter, {searchtermmatchtype}, reports how the search term matched. It returns e, p or b for keyword matches and a for AI Max broad expansions and keywordless matches.",
+   "The older {matchtype} only reports the keyword's match type, so an AI Max expansion on an exact keyword used to look like a plain \"e\" click in your analytics.",
+   "Add it to your tracking template, then compare standard keyword traffic with AI Max traffic in your own analytics or CRM. But the help page is undated and partly unconfirmed, so test before you rely on it."
+  ]
+ },
+ {
   "slug": "2026-11-16-pmax-pay-per-lead-goals",
   "title": "Pay-per-lead is coming to Performance Max: what changes when you pay for leads instead of clicks",
   "date": "2026-11-16",
@@ -232,6 +255,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-17",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-17-ai-max-valuetrack-search-term-matchtype",
+    "title": "Was that \"exact match\" click really AI Max? How the new {search_term_matchtype} parameter exposes it",
+    "track": "Measurement & Tracking"
+   }
+  ]
+ },
  {
   "date": "2026-11-16",
   "items": [
