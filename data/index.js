@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-18-new-customer-value-multipliers",
+  "title": "Pay more for new customers, on purpose: Google's new-customer multipliers and \"new customer only\" bidding explained",
+  "date": "2026-11-18",
+  "track": "Bidding & Budgets",
+  "level": "Intermediate",
+  "summary": "Google has moved percentage multipliers (1.1x to 5x) for new-customer value out of beta and documents a \"New Customer Only\" mode. Learn how customer lifecycle goals change your bids, why a flat bonus and a multiplier behave differently, and how to set it up safely before Black Friday.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "customer lifecycle goals",
+   "new customers",
+   "value-based bidding",
+   "Customer Match",
+   "Black Friday"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google's customer lifecycle goals tell Smart Bidding that a new customer is worth more than a returning one. A percentage multiplier (1.1x to 5x) is now an alternative to a flat bonus such as $20.",
+   "New Customer Only bids for new customers alone, and Google's help page says it works with value-based and cost-based bidding, so lead-gen accounts can use it too.",
+   "It only works as well as your customer lists. Bad lists mean Google misjudges who is \"new\", so check list health and keep an eye on inflated reported conversion value."
+  ]
+ },
+ {
   "slug": "2026-11-17-ai-max-valuetrack-search-term-matchtype",
   "title": "Was that \"exact match\" click really AI Max? How the new {search_term_matchtype} parameter exposes it",
   "date": "2026-11-17",
@@ -255,6 +278,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-18",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-18-new-customer-value-multipliers",
+    "title": "Pay more for new customers, on purpose: Google's new-customer multipliers and \"new customer only\" bidding explained",
+    "track": "Bidding & Budgets"
+   }
+  ]
+ },
  {
   "date": "2026-11-17",
   "items": [
