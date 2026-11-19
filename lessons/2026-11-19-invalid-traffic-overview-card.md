@@ -1,0 +1,110 @@
+---
+title: Google now shows what invalid traffic it filtered and credited: how to read the new card (and what it can't prove)
+date: 2026-11-19
+track: Fundamentals
+level: Beginner
+summary: Google Ads is rolling out an Invalid Traffic Overview Card that shows estimated savings from traffic filtered before billing and credits issued afterward. Learn where to find it, how the two numbers differ, why your main reports don't change, and a 20-minute audit to run before Black Friday.
+tags: invalid traffic, click fraud, credits, reporting, transparency
+---
+
+## In 30 seconds
+
+- Google added an **Invalid Traffic Overview Card** to the Overview page. It shows **estimated savings** (junk filtered *before* you were billed) and **credited cost** (refunds for junk found *after* billing).
+- Credits **don't change Cost or CPA** in your main Campaigns table. To see net numbers, use the **Invalid Activity Credit** report in the report editor.
+- The card only shows what **Google itself caught**. It can't tell you about fraud nobody detected, so **keep checking lead quality in your own CRM**.
+
+## What changed
+
+- On November 12, 2026, Google announced the card in a [Google Ads & Commerce blog post](https://blog.google/products/ads-commerce/invalid-traffic-overview-google-ads/). It displays the amount saved by Google's defenses and the credits issued for invalid activity. Google says it doesn't charge for invalid traffic, and credits later-detected activity "where appropriate and possible".
+- Google also says it has cut advertiser exposure to invalid leads by an average of 30% so far in 2026. That's Google's own figure, with no published baseline or method, and it isn't tied to the card.
+- [Search Engine Journal](https://www.searchenginejournal.com/google-ads-rolls-out-new-invalid-traffic-overview-card/597098/) reports the card sits on the Overview page under the Campaigns tab, with a "View details" trend chart, a campaign table and CSV download. It is also reported to be available in Search Ads 360.
+- Rollout is global and gradual, so you may not see it yet. [PPC Land](https://ppc.land/google-ads-now-shows-how-much-invalid-traffic-advertisers-did-not-pay-for/) notes Google hasn't said how savings are valued, which campaign types are covered, or whether the numbers will reach the API.
+
+## Why it matters
+
+Until now, invalid-traffic protection was something you had to take on trust. Credits existed, but you had to hunt for them in billing. The card puts both numbers in the first screen you open. That helps in two ways: you can verify that protection is working, and you can show a client or boss that you checked.
+
+It also helps you avoid a common mistake: paying a third-party click-fraud tool to solve a problem that Google may already be crediting. You can only judge that once you see the numbers.
+
+## The lesson: filtered, credited, and undetected are three different things
+
+| Bucket | What it means | Where you see it | Does it change your reports? |
+|---|---|---|---|
+| **Filtered before billing** | Google's systems dropped the click, so you never paid | Card: *Estimated savings* | No, these clicks never enter your Cost |
+| **Credited after billing** | Google found it later and refunded you | Card: *Credited cost*, and your monthly invoice | Not in the main Campaigns table, which locks at month-end |
+| **Undetected** | Looks like a real click or lead to Google | Nowhere on the card | You pay for it |
+
+Per Search Engine Journal, the net view lives in the **"Invalid Activity Credit: Search & PMax"** report in the report editor (Performance Summary templates). It includes adjusted cost and attributes credits to the original ad dates. Note that it covers Search and Performance Max only.
+
+Two cautions from the same coverage:
+
+- **Bigger spend shows bigger savings.** A large "savings" number can simply mean you spend a lot. Compare it to your spend, not to other accounts.
+- **Invalid is not the same as low quality.** A real person who clicks and never buys isn't invalid traffic. Bad leads can also come from legitimate form fills. That's a targeting and tracking problem the card won't flag. For bidding problems that look similar, see [how the auction works](lesson.html?l=2026-11-03-how-the-google-ads-auction-works) and [how to read AI Max search terms](lesson.html?l=2026-11-04-ai-max-search-terms-and-ad-combinations).
+
+## Worked example: is the card good news?
+
+*Illustrative numbers, not real account data.*
+
+A lead-gen account spends **$20,000** in October and sees:
+
+| Item | Amount |
+|---|---|
+| Spend billed | $20,000 |
+| Estimated savings (filtered) | $1,800 |
+| Credited cost (found later) | $300 |
+
+Step by step:
+
+1. Credits as a share of spend: 300 ÷ 20,000 = **1.5%**.
+2. Net spend after credits: 20,000 − 300 = **$19,700**.
+3. If the account got 400 leads, reported CPA is 20,000 ÷ 400 = **$50**, but net CPA is 19,700 ÷ 400 = **$49.25**. The main table still shows $50.
+4. Filtered savings of $1,800 are money you *never spent*, so they don't lower CPA. They only tell you how much junk was around.
+
+Now the check Google can't do for you: of the 400 leads, the sales team marks **120** as spam or fake. That's 30% bad leads. The card didn't flag them, because they passed Google's filters. The fix is lead-quality work (qualifying form questions, conversion imports of real sales, see [offline conversions and the 7-day rule](lesson.html?l=2026-11-05-offline-conversions-seven-day-rule)), not the card.
+
+## What others are doing
+
+- **Reporting on the launch.** [Search Engine Journal](https://www.searchenginejournal.com/google-ads-rolls-out-new-invalid-traffic-overview-card/597098/) and [PPC Land](https://ppc.land/google-ads-now-shows-how-much-invalid-traffic-advertisers-did-not-pay-for/) both stress the open questions: how savings are valued, whether accidental clicks are counted with fraud, and which campaign types are included. These are journalists' observations, not account tests.
+- **Earlier credit documentation.** The invalid activity credit report was documented before this card, per [PPC Land](https://ppc.land/google-ads-documents-invalid-activity-credit-report-for-the-first-time/). The new card mostly makes the same idea easier to find.
+- **Third-party fraud vendors.** Companies selling click-fraud protection have an obvious interest in telling you Google's filtering is not enough. Treat their claims as vendor-run, and ask for the test design.
+
+## Where the experts disagree
+
+- **Google's position:** the defenses work in the background, you're not charged for invalid traffic, and the card proves it.
+- **The skeptical position:** the card is Google reporting on Google. Savings are estimated with an undisclosed method, and "where appropriate and possible" leaves room for credits you never get. Accidental clicks appear to be lumped in with fraud.
+- **Where evidence is thin:** nobody outside Google has published a test showing how much invalid traffic *escapes* the filters. The card can't answer that, and neither can this lesson.
+
+**Our take:** Use the card as a free sanity check, not as proof your traffic is clean. Check it monthly, compare credits to spend, and judge lead quality in your CRM. If your credited share is near zero but your leads are mostly junk, that's a signal to look at targeting, forms and partner traffic, not to assume Google is protecting you. Pay for a third-party tool only if your own data shows a problem the card doesn't.
+
+## Watch
+
+```youtube
+bQ8mpkV5mn0 | How to Check Invalid Clicks in Google Ads Dashboard (English Tutorial 2026) | PPCAmir
+dT3lcHDyBXM | Google Ads Invalid Click Activity | Paid Media Pros
+```
+
+- *PPCAmir:* a 2026 walkthrough of finding invalid-click data in the dashboard. It predates the new card, so use it for the older reports.
+- *Paid Media Pros:* a short explainer on invalid click activity and billing credits. Check the menu paths against your live account, as the interface changes.
+
+## Do this today
+
+1. Open **Overview → Campaigns tab** and look for the Invalid traffic card. If it isn't there, rollout hasn't reached you; check again next week.
+2. Click **View details** and download the CSV for the last 90 days.
+3. Calculate credits as a percentage of spend, using the method above.
+4. In the report editor, open the **Invalid Activity Credit: Search & PMax** template and compare net cost to the cost in your Campaigns table.
+5. Pick your highest-spend campaign and compare its savings to its spend, not to other campaigns.
+6. Ask your sales team for the share of last month's leads marked spam. Write that number next to the card's numbers.
+
+## Quiz
+
+```quiz
+[
+  {"q": "Your card shows $2,000 in estimated savings and $0 in credited cost on $25,000 of spend. What can you safely conclude?", "options": ["Your traffic is 100% clean", "Google filtered about $2,000 of junk before billing, and found nothing to credit later", "You were refunded $2,000", "Your CPA fell by 8%"], "answer": 1, "why": "Estimated savings are money you never spent, so they don't refund or lower CPA. Zero credits means nothing was credited, not that nothing undetected got through."},
+  {"q": "Your Campaigns table shows CPA of $50, but you received $300 in credits on 400 leads. Where do you find the net figure?", "options": ["The Campaigns table updates automatically", "The Invalid Activity Credit report in the report editor", "The Keywords tab", "Nowhere"], "answer": 1, "why": "The main table locks at month-end and doesn't reflect later credits. The Invalid Activity Credit report shows adjusted cost, for Search and Performance Max only."},
+  {"q": "30% of your leads are fake form fills, but the card shows low savings and credits. What is the best next step?", "options": ["Assume the card is broken", "Complain to Google and stop advertising", "Tighten the form, import real sales as conversions, and review targeting", "Ignore it since the card says traffic is clean"], "answer": 2, "why": "The card only shows what Google detected. Leads that look real to Google need lead-quality fixes on your side."}
+]
+```
+
+---
+
+**Sources:** [Google Ads & Commerce blog](https://blog.google/products/ads-commerce/invalid-traffic-overview-google-ads/) · [Search Engine Journal](https://www.searchenginejournal.com/google-ads-rolls-out-new-invalid-traffic-overview-card/597098/) · [PPC Land: invalid traffic card](https://ppc.land/google-ads-now-shows-how-much-invalid-traffic-advertisers-did-not-pay-for/) · [PPC Land: invalid activity credit report](https://ppc.land/google-ads-documents-invalid-activity-credit-report-for-the-first-time/) · [PPCAmir video](https://www.youtube.com/watch?v=bQ8mpkV5mn0) · [Paid Media Pros video](https://www.youtube.com/watch?v=dT3lcHDyBXM)

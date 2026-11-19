@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-19-invalid-traffic-overview-card",
+  "title": "Google now shows what invalid traffic it filtered and credited: how to read the new card (and what it can't prove)",
+  "date": "2026-11-19",
+  "track": "Fundamentals",
+  "level": "Beginner",
+  "summary": "Google Ads is rolling out an Invalid Traffic Overview Card that shows estimated savings from traffic filtered before billing and credits issued afterward. Learn where to find it, how the two numbers differ, why your main reports don't change, and a 20-minute audit to run before Black Friday.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "invalid traffic",
+   "click fraud",
+   "credits",
+   "reporting",
+   "transparency"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google added an Invalid Traffic Overview Card to the Overview page. It shows estimated savings (junk filtered before you were billed) and credited cost (refunds for junk found after billing).",
+   "Credits don't change Cost or CPA in your main Campaigns table. To see net numbers, use the Invalid Activity Credit report in the report editor.",
+   "The card only shows what Google itself caught. It can't tell you about fraud nobody detected, so keep checking lead quality in your own CRM."
+  ]
+ },
+ {
   "slug": "2026-11-18-new-customer-value-multipliers",
   "title": "Pay more for new customers, on purpose: Google's new-customer multipliers and \"new customer only\" bidding explained",
   "date": "2026-11-18",
@@ -278,6 +301,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-19",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-19-invalid-traffic-overview-card",
+    "title": "Google now shows what invalid traffic it filtered and credited: how to read the new card (and what it can't prove)",
+    "track": "Fundamentals"
+   }
+  ]
+ },
  {
   "date": "2026-11-18",
   "items": [
