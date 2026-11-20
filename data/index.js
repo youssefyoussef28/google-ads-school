@@ -1,5 +1,29 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-20-seasonality-adjustments-black-friday",
+  "title": "Seasonality adjustments before Black Friday: when to tell Smart Bidding a sale is coming (and when to leave it alone)",
+  "date": "2026-11-20",
+  "track": "Bidding & Budgets",
+  "level": "Intermediate",
+  "summary": "Google now lists Demand Gen among the campaign types that can use seasonality adjustments, just as Black Friday approaches. Learn what the tool does, how to size an adjustment from your own data, and why Google itself says to use it only for short, big conversion-rate swings.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "seasonality adjustments",
+   "Smart Bidding",
+   "Black Friday",
+   "Demand Gen",
+   "target CPA",
+   "target ROAS"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "A seasonality adjustment tells Smart Bidding to expect a temporary change in conversion rate (for example a flash sale), so it bids accordingly from the first hour and returns to normal afterwards.",
+   "Google's help page says to use it for events of about 1 to 7 days, with an expected big conversion-rate change, and warns it may work less well past 14 days. Smart Bidding already handles ordinary seasonality.",
+   "Demand Gen is now listed as supported with Target CPA or Target ROAS, but Google's own pages disagree, so check the scope menu in your account before planning around it."
+  ]
+ },
+ {
   "slug": "2026-11-19-invalid-traffic-overview-card",
   "title": "Google now shows what invalid traffic it filtered and credited: how to read the new card (and what it can't prove)",
   "date": "2026-11-19",
@@ -301,6 +325,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-20",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-20-seasonality-adjustments-black-friday",
+    "title": "Seasonality adjustments before Black Friday: when to tell Smart Bidding a sale is coming (and when to leave it alone)",
+    "track": "Bidding & Budgets"
+   }
+  ]
+ },
  {
   "date": "2026-11-19",
   "items": [
