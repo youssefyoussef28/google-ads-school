@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-21-smart-bidding-learning-status-seven-days",
+  "title": "The \"Learning\" label now ends in 7 days: what Google's rewrite means for when you can judge Smart Bidding",
+  "date": "2026-11-21",
+  "track": "Bidding & Budgets",
+  "level": "Intermediate",
+  "summary": "Google rewrote its Smart Bidding learning guidance in October. The Learning status now never lasts more than 7 days, fewer edits trigger it, and Google separates that label from the longer time results need to settle. Learn what to wait for, what to leave alone, and how to judge a bid change fairly.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "Smart Bidding",
+   "learning period",
+   "target CPA",
+   "target ROAS",
+   "bidding"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google's help page, now titled \"About Smart Bidding learning\", says the Learning status never lasts more than 7 days, and lists just three triggers: a new or reactivated bid strategy, changes to the campaigns, ad groups or keywords in it, and significant changes to the conversion goals being optimized.",
+   "Edits to budgets, targets, creatives and targeting do not trigger Learning. But the label ending is not the same as results being stable: Google says performance typically settles within 1 to 2 conversion cycles.",
+   "Judge a change over 2 conversion cycles or 2 weeks, whichever is longer, and stop stacking changes inside that window."
+  ]
+ },
+ {
   "slug": "2026-11-20-seasonality-adjustments-black-friday",
   "title": "Seasonality adjustments before Black Friday: when to tell Smart Bidding a sale is coming (and when to leave it alone)",
   "date": "2026-11-20",
@@ -325,6 +348,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-21",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-21-smart-bidding-learning-status-seven-days",
+    "title": "The \"Learning\" label now ends in 7 days: what Google's rewrite means for when you can judge Smart Bidding",
+    "track": "Bidding & Budgets"
+   }
+  ]
+ },
  {
   "date": "2026-11-20",
   "items": [

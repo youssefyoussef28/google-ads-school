@@ -1,0 +1,102 @@
+---
+title: The "Learning" label now ends in 7 days: what Google's rewrite means for when you can judge Smart Bidding
+date: 2026-11-21
+track: Bidding & Budgets
+level: Intermediate
+summary: Google rewrote its Smart Bidding learning guidance in October. The Learning status now never lasts more than 7 days, fewer edits trigger it, and Google separates that label from the longer time results need to settle. Learn what to wait for, what to leave alone, and how to judge a bid change fairly.
+tags: Smart Bidding, learning period, target CPA, target ROAS, bidding
+---
+
+## In 30 seconds
+
+- Google's help page, now titled **"About Smart Bidding learning"**, says the **Learning status never lasts more than 7 days**, and lists just **three triggers**: a new or reactivated bid strategy, changes to the campaigns, ad groups or keywords in it, and significant changes to the conversion goals being optimized.
+- Edits to **budgets, targets, creatives and targeting** do **not** trigger Learning. But the label ending is **not** the same as results being stable: Google says performance typically settles within **1 to 2 conversion cycles**.
+- Judge a change over **2 conversion cycles or 2 weeks, whichever is longer**, and stop stacking changes inside that window.
+
+## What changed
+
+- On **October 21, 2026**, [Search Engine Roundtable reported](https://www.seroundtable.com/google-ads-updates-smart-bidding-doc-42345.html) a major rewrite of Google's help page, renamed from "Duration of the learning period for campaigns and what affects it" to "About Smart Bidding learning". (Tier 2 report of a Tier 1 page.)
+- [Google's current help page](https://support.google.com/google-ads/answer/13020501) says the status "never lasts more than 7 days" and that ads keep serving normally while it shows.
+- The three triggers are: creating or reactivating a bid strategy (applying a new portfolio strategy counts), adding or removing campaigns, ad groups or keywords, and significantly changing the conversion goals or actions you optimize for.
+- The page says changes to budgets, targets, creatives or targeting settings do not trigger the status. Trade coverage dated November 11 also reported the initial serving ramp for Performance Max and Demand Gen can take up to 7 days; that detail I could not confirm on Google's page, so treat it as reported only.
+- Older guidance and cached copies of the help page told advertisers to wait **7 to 14 days**. Which wording you see may depend on cache and region, so read the live page.
+
+## Why it matters
+
+Many advertisers use "Learning" as a stop sign: wait until it disappears, then judge. With a 7-day cap on the label, that habit gets you to a verdict early. Google itself separates the visible label from the longer time performance needs to level off. A campaign can drop the label and still be a week from numbers you should trust.
+
+The reverse mistake also costs money. If you believe every edit resets learning, you freeze good accounts. Google says target and budget edits don't trigger the status, and that they never wipe your historical data. That doesn't mean they are free: a new target still changes how the system bids.
+
+## The lesson: the label, the data and the decision are three different clocks
+
+| Clock | What it measures | How long |
+|---|---|---|
+| **Learning status** | A label the system shows after a structural change | Up to 7 days, never longer |
+| **Performance settling** | Time for results to converge to the new goal | Typically 1 to 2 conversion cycles (Google) |
+| **Your decision window** | How much data you need before judging | 2 conversion cycles or 2 weeks, whichever is longer (Google) |
+
+A **conversion cycle** is how long customers usually take from click to conversion. If most of your sales happen within 3 days of a click, a cycle is about 3 days. If your leads close in 30 days, a cycle is 30 days, and Learning disappearing after a week tells you almost nothing.
+
+Google's best practices follow from how the system learns: one consistent **primary conversion goal**, enough **daily budget** to optimize, **consolidated** campaigns and ad groups so data pools, and **no repeated target changes within one conversion cycle** unless there's a clear business need.
+
+> [!WARNING]
+> Changing the conversion goal is a structural trigger. Switching which action you optimize for, or marking a big batch of actions primary or secondary, can restart the status and shift results even if your target stays the same.
+
+## Worked example: a lead-gen account with a 21-day sales cycle
+
+*Illustrative numbers.* A B2B campaign uses Target CPA of $80. Leads convert to qualified within about 21 days.
+
+1. **Day 0:** You switch from Maximize Conversions to Target CPA. That is a new bid strategy, so the Learning label appears.
+2. **Day 7:** The label disappears. CPA reads $110 on 12 conversions. It is tempting to cut the target to $60.
+3. **The check:** One conversion cycle is 21 days, and Google says settling takes 1 to 2 cycles, so you are in the first third of the window.
+4. **Decision window:** The longer of 2 cycles (42 days) or 2 weeks is 42 days. Judging on day 7 uses 17% of that window (7 / 42).
+5. **Day 21:** Delayed conversions are now credited, and CPA is $92. Still above target but falling.
+6. **Day 42:** Evaluate for real. If CPA is still well above $80 with healthy volume, adjust the target once, by a modest step, and then wait again.
+
+Had you cut to $60 on day 7, you'd have started a new bidding signal inside the settling period and made the data unreadable.
+
+## What others are doing
+
+- **Search Engine Roundtable** documented the rewrite and highlighted the new FAQ and best practices, which is the clearest public record of what changed ([report](https://www.seroundtable.com/google-ads-updates-smart-bidding-doc-42345.html)).
+- **Practitioner videos** disagree on specifics. One educator I found advises waiting a few weeks and then gathering around 90 days of data before judging a strategy switch; another says the old "30 conversions" rule of thumb is not always the right test. I could not verify the data behind either claim, so treat them as opinions.
+- **Caveat:** I found no published independent test of the new 7-day cap. It describes a label, not measured performance.
+
+## Where the experts disagree
+
+- **Google's position:** the Learning label is short, structural changes cause it, and results converge within 1 to 2 conversion cycles. Evaluate over 2 cycles or 2 weeks.
+- **Practitioner caution:** many experienced buyers still wait longer than Google suggests, especially with low volume or long sales cycles, and avoid touching budget and target at once.
+- **Where evidence is thin:** nobody has published a controlled test showing that target or budget edits are harmless to performance. Google says they don't trigger the status; that is a statement about the label, not about outcomes. Also, one source says the old guidance recommended 7 to 14 days, and I could not confirm the date Google's live page changed beyond the October 21 report.
+
+**Our take:** Treat the 7-day cap as the earliest you can *look*, not the time to *decide*. Wait the longer of two conversion cycles or two weeks, change one thing at a time, and make an exception only when spend is running far past a clear business limit. This is wrong for tiny accounts with very few conversions, where even two cycles may be too little data.
+
+## Watch
+
+```youtube
+DhoVw1ixlUw | Google Ads Bid Strategy Learning Phase - What Does It Mean & How Long Do You Have To Wait | Teach Traffic
+OW71NnxXHZ4 | Google Ads Learning Period - What It Is and How to Avoid It | Scott Redgate
+```
+
+Both videos are practitioner explainers whose publication dates I could not check, so they may pre-date Google's rewrite. Use them for the intuition behind learning periods, and trust Google's current help page for the specific numbers.
+
+## Do this today
+
+1. Open **Tools > Bid strategies** and note which campaigns show a Learning status and why.
+2. For each Smart Bidding campaign, estimate your **conversion cycle** from the conversion delay in your reports.
+3. Write a "no judgment until" date for every recent change: the later of 2 cycles or 2 weeks.
+4. List changes made in the last 14 days. If you changed targets more than once inside one cycle, pause further edits.
+5. Check you have **one primary conversion goal** per campaign, and review any recent goal changes.
+6. Before a sale, use a [seasonality adjustment](lesson.html?l=2026-11-20-seasonality-adjustments-black-friday) rather than repeatedly nudging targets, and if you plan to add new-customer bonuses, see [new-customer multipliers](lesson.html?l=2026-11-18-new-customer-value-multipliers) and make that change once.
+
+## Quiz
+
+```quiz
+[
+  {"q": "Your campaign's Learning label disappeared on day 6. Your sales cycle is 14 days. According to Google's guidance, when should you judge a bid change?", "options": ["Immediately, since Learning is over", "After 2 conversion cycles or 2 weeks, whichever is longer (28 days here)", "After exactly 7 days", "After 90 days only"], "answer": 1, "why": "The label ending is not the same as results settling. Google suggests evaluating over 2 conversion cycles or 2 weeks, whichever is longer, which is 28 days with a 14-day cycle."},
+  {"q": "Which of these does Google's help page say triggers the Learning status?", "options": ["Changing the daily budget", "Editing ad headlines", "Significantly changing the conversion goals being optimized", "Changing location targeting"], "answer": 2, "why": "Budgets, targets, creatives and targeting settings do not trigger it; new or reactivated strategies, structure changes and significant goal changes do."},
+  {"q": "You lowered your Target CPA on Monday and again on Thursday, and results look unstable. What is the best next step?", "options": ["Lower it again to force learning", "Stop changing it, and judge after the full decision window", "Pause the campaign and rebuild it", "Switch to manual CPC"], "answer": 1, "why": "Google advises avoiding repeated target changes within one conversion cycle. Stacked edits make it impossible to tell which one caused the result."}
+]
+```
+
+---
+
+**Sources:** [Google Ads Help: About Smart Bidding learning](https://support.google.com/google-ads/answer/13020501) · [Search Engine Roundtable: Google Ads Updates Smart Bidding Learning Doc](https://www.seroundtable.com/google-ads-updates-smart-bidding-doc-42345.html) · [Teach Traffic video](https://www.youtube.com/watch?v=DhoVw1ixlUw) · [Scott Redgate video](https://www.youtube.com/watch?v=OW71NnxXHZ4)
