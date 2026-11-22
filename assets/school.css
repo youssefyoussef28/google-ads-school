@@ -163,3 +163,34 @@ html[data-tone="dark"] {
 }
 /* phone: the topic row would wrap into a block of words, so it stays a desktop detail; feature bullets clamp */
 @media (max-width: 639px) { .gs-marquee { display: none; } }
+
+/* ---------- the light / dark switch in the header */
+.gs-tone { width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--r-btn, 10px); border: 1px solid var(--line-strong); background: transparent; color: var(--ink); cursor: pointer; flex: none; transition: background .2s, border-color .2s; }
+.gs-tone:hover { background: color-mix(in oklab, var(--ink) 6%, transparent); border-color: var(--ink); }
+.gs-tone svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.gs-tone__sun { display: none; }
+html[data-tone="dark"] .gs-tone__sun { display: block; }
+html[data-tone="dark"] .gs-tone__moon { display: none; }
+
+/* ---------- the footer's newsletter block: a title, one line, and the field and button on one row */
+.gs-news { display: grid; gap: var(--s-3); align-content: start; max-width: 520px; }
+.gs-news__title { font: var(--display-weight) clamp(22px, 2vw, 28px)/1.2 var(--font-display); letter-spacing: var(--display-tracking); color: var(--ink); }
+.gs-news__text { color: var(--muted); font-size: 16px; }
+.gs-news .gs-sub { max-width: none; margin-top: var(--s-2); }
+.gs-news label { font-size: 14px; font-weight: 500; }
+.gs-sub__row { display: flex; gap: var(--s-2); margin-top: var(--s-2); }
+.gs-sub__row input { flex: 1 1 auto; min-width: 0; height: 48px; width: auto !important; border-radius: var(--r-btn, 10px); }
+.gs-sub__btn { height: 48px; flex: none; padding-inline: var(--s-6); background: var(--ink); color: var(--bg); border: 0; }
+.gs-sub__btn:hover { background: color-mix(in oklab, var(--ink) 86%, var(--bg)); }
+@media (max-width: 479px) { .gs-sub__row { flex-direction: column; } .gs-sub__btn { width: 100%; } }
+
+/* light mode: the contrasting band and the footer become a soft grey surface instead of black */
+html:not([data-tone="dark"]) {
+  --p-inv-bg: #e3e7ed; --p-inv-surface: #d8dde5; --p-inv-ink: #0b0c0e; --p-inv-muted: #55585d;
+  --p-inv-action: #1a73e8; --p-inv-action-ink: #ffffff;
+}
+.gs-news .gs-sub { grid-template-columns: minmax(0, 1fr); }
+.gs-news .field { width: 100%; display: block; grid-column: 1 / -1; }
+
+/* the hero sub-line is read, not a label: ink at 7:1 or more on both tones */
+.hero--centred .hero__lead { color: color-mix(in oklab, var(--ink) 78%, var(--bg)); }

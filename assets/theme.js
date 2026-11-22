@@ -1,7 +1,7 @@
-// Sets the light or dark tone before the first paint: the visitor's saved choice, else the OS setting.
+// Sets the tone before the first paint. Light is the default; dark only when the visitor chose it
+// with the switch in the header.
 (function () {
   var saved = null;
   try { saved = localStorage.getItem("gas.tone"); } catch (e) {}
-  var dark = saved ? saved === "dark" : window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
-  if (dark) document.documentElement.setAttribute("data-tone", "dark");
+  if (saved === "dark") document.documentElement.setAttribute("data-tone", "dark");
 })();

@@ -65,7 +65,7 @@
 
   var btn = document.querySelector("[data-theme-toggle]");
   if (btn) {
-    var paint = function () { btn.textContent = document.documentElement.getAttribute("data-tone") === "dark" ? "Light" : "Dark"; };
+    var paint = function () { btn.setAttribute("aria-label", document.documentElement.getAttribute("data-tone") === "dark" ? "Switch to light mode" : "Switch to dark mode"); };
     paint();
     btn.addEventListener("click", function () {
       var dark = document.documentElement.getAttribute("data-tone") !== "dark";
