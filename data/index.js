@@ -1,5 +1,29 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-22-editor-2-14-ai-max-default-new-search-campaigns",
+  "title": "AI Max is now the default in Google Ads Editor: a pre-launch checklist for every new Search campaign",
+  "date": "2026-11-22",
+  "track": "Search & Keywords",
+  "level": "Intermediate",
+  "summary": "Google Ads Editor 2.14 starts new Search campaigns with AI Max, text asset automation and Final URL expansion already on. Learn what each switch does, why pinned headlines and fixed landing pages are the risk, and a five-minute check to run before you post.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "AI Max",
+   "Google Ads Editor",
+   "Final URL expansion",
+   "text customization",
+   "pinning",
+   "Search"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google Ads Editor 2.14 now creates new Search campaigns with AI Max, text asset automation and Final URL expansion switched on. Existing campaigns are not changed.",
+   "The risk is not AI Max itself, it is posting a campaign you did not review: with Final URL expansion on, clicks can land on other pages and pinned headlines may not be used.",
+   "Before you post any new Search campaign, spend five minutes on the AI Max panel: keep what fits, turn off or exclude what doesn't."
+  ]
+ },
+ {
   "slug": "2026-11-21-smart-bidding-learning-status-seven-days",
   "title": "The \"Learning\" label now ends in 7 days: what Google's rewrite means for when you can judge Smart Bidding",
   "date": "2026-11-21",
@@ -348,6 +372,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-22",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-22-editor-2-14-ai-max-default-new-search-campaigns",
+    "title": "AI Max is now the default in Google Ads Editor: a pre-launch checklist for every new Search campaign",
+    "track": "Search & Keywords"
+   }
+  ]
+ },
  {
   "date": "2026-11-21",
   "items": [
