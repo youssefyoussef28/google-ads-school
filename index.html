@@ -49,10 +49,9 @@
 <link rel="modulepreload" href="assets/moments/marquee-row/moment.js">
 <style>
   /* page CSS: inside the visuals only, and one --p-h per card group */
-  #lessons .panel { --p-h: 112px; }
   #inside .panel { --p-h: 236px; }
-  @media (max-width: 639px) { #lessons .panel { --p-h: 122px; } #inside .panel { --p-h: 170px; } }
-  @media (min-width: 640px) and (max-width: 1279px) { #lessons { --h: 2; } }
+  @media (max-width: 1279px) { #inside .panel { --p-h: 270px; } }
+  @media (max-width: 639px) { #inside .panel { --p-h: 176px; } }
 </style>
 </head>
 <body data-page="index">
@@ -65,7 +64,7 @@
 <header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="#top"><span class="mark mark--initial" aria-hidden="true">G</span>Google Ads School</a>
+    <a class="nav__logo" href="#top"><span class="gs-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Google Ads School</a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item">
         <a class="nav__link" href="#lessons">Lessons <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -131,19 +130,22 @@
     </div></div>
   </section>
 
-  <section class="section" id="lessons" style="--hm: 2" aria-labelledby="lessons-h">
+  <section class="section" id="lessons" aria-labelledby="lessons-h">
     <div class="wrap">
       <div class="section-head section-head--split">
         <h2 id="lessons-h">Latest lessons. <span class="muted">One lands every morning.</span></h2>
         <a class="link" href="updates.html">See every lesson</a>
       </div>
-      <div class="grid" data-latest>
-        <!-- six cards, filled from data/index.js by assets/app.js; these are the build-time copy -->
-        <a class="card card--open card--row span-4 gs-lesson" href="lesson.html?l=2026-11-15-data-strength-uplift-metric" style="--tc:#34a853">
-          <div class="panel gs-cover" data-track="Measurement &amp; Tracking"><span class="gs-cover__icon" style="-webkit-mask-image:url(assets/icons/ui-ruler.svg);mask-image:url(assets/icons/ui-ruler.svg)"></span><span class="gs-cover__track">Measurement &amp; Tracking</span></div>
-          <h3>Data Strength Uplift: what the new number tells you</h3>
-          <p>Nov 15 · Intermediate · 8 min</p>
+      <div class="grid grid--top gs-latest" data-latest>
+        <!-- filled from data/index.js by assets/home.js: today's lesson as the featured card, the next five as a list -->
+        <a class="card gs-feature span-6" href="lesson.html" data-today-link>
+          <span class="gs-feature__top"><span class="gs-dot" style="--tc:#34a853"></span><span>Today · Measurement &amp; Tracking</span></span>
+          <h3 class="gs-feature__title">Data Strength Uplift</h3>
+          <ul class="gs-feature__tldr"><li>Google Ads now estimates the share of extra conversions your first-party data setup recovered over the last 14 days.</li></ul>
+          <span class="gs-feature__meta">Intermediate · 6 min read</span>
+          <span class="link gs-feature__go">Read the lesson</span>
         </a>
+        <ol class="gs-rows span-6 start-7"></ol>
       </div>
       <div class="gs-marquee" data-moment="marquee-row" data-moment-opts='{"speed": 32}'>
         <ul class="mo-mq__track" data-edge-free><li>AI Max</li><li>Performance Max</li><li>Smart Bidding</li><li>Customer Match</li><li>Quality Score</li><li>Ads in AI Mode</li><li>Search terms</li><li>Offline conversions</li><li>Demand Gen</li><li>Enhanced conversions</li><li>Broad match</li><li>Ad Rank</li></ul>
@@ -227,7 +229,7 @@
     </div>
   </section>
 
-  <section class="section" id="sources" style="--hm: 2" aria-labelledby="sources-h">
+  <section class="section" id="sources" aria-labelledby="sources-h">
     <div class="wrap">
       <div class="grid grid--top fill">
         <div class="span-5 stack-6">

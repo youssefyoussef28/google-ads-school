@@ -63,7 +63,7 @@
         <header class="nav nav--centre">
           <div class="wrap nav__bar">
             <a class="skip-link" href="#top">Skip to content</a>
-            <a class="nav__logo" href="index.html"><span class="mark mark--initial" aria-hidden="true">G</span>Google Ads School</a>
+            <a class="nav__logo" href="index.html"><span class="gs-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Google Ads School</a>
             <nav class="nav__links" aria-label="Main">
               <div class="nav__item"><a class="nav__link" href="index.html#lessons">Latest</a></div>
               <div class="nav__item"><a class="nav__link" href="updates.html"${cur("updates")}>Every lesson</a></div>
@@ -84,7 +84,7 @@
           <div class="wrap">
             <div class="grid">
               <div class="span-6 stack-4">
-                <a class="nav__logo" href="index.html"><span class="mark mark--initial" aria-hidden="true">G</span>Google Ads School</a>
+                <a class="nav__logo" href="index.html"><span class="gs-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Google Ads School</a>
                 <form class="form gs-sub" action="mailto:hello@googleadsschool.example" method="post" enctype="text/plain" data-endpoint="${esc(CONFIG.subscribeEndpoint || "")}" data-sent="You're subscribed. The next lesson arrives tomorrow morning." novalidate>
                   <div class="field"><label for="f-email">Email for the daily lesson</label>
                     <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">

@@ -41,14 +41,25 @@
     }
   }
 
-  var grid = document.querySelector("[data-latest]");
-  if (grid && LESSONS.length) {
-    grid.innerHTML = LESSONS.slice(0, 6).map(function (l) {
+  // The lessons section: today's lesson as the featured card, the next five as a ruled list.
+  var feat = document.querySelector(".gs-feature");
+  if (feat && latest) {
+    var ft = track(latest.track);
+    feat.innerHTML =
+      '<span class="gs-feature__top"><span class="gs-dot" style="--tc:' + ft[0] + '"></span><span>' + (latest.date === todayISO ? "Today" : day(latest.date)) + " · " + esc(latest.track) + "</span></span>" +
+      '<h3 class="gs-feature__title">' + esc(latest.title.split(":")[0]) + "</h3>" +
+      (latest.tldr && latest.tldr.length ? '<ul class="gs-feature__tldr">' + latest.tldr.slice(0, 1).map(function (b) { return "<li>" + esc(b) + "</li>"; }).join("") + "</ul>" : "<p>" + esc(latest.summary) + "</p>") +
+      '<span class="gs-feature__meta">' + esc(latest.level) + " · " + latest.minutes + " min read</span>" +
+      '<span class="link gs-feature__go">Read the lesson</span>';
+  }
+  var rows = document.querySelector(".gs-rows");
+  if (rows && LESSONS.length > 1) {
+    rows.innerHTML = LESSONS.slice(1, 6).map(function (l) {
       var t = track(l.track);
-      return '<a class="card card--open card--row span-4 gs-lesson" href="' + url(l) + '" style="--tc:' + t[0] + '">' +
-        '<div class="panel gs-cover"><span class="gs-cover__icon" style="-webkit-mask-image:url(assets/icons/ui-' + t[1] + '.svg);mask-image:url(assets/icons/ui-' + t[1] + '.svg)"></span><span class="gs-cover__track">' + esc(l.track) + "</span></div>" +
-        "<h3>" + esc(l.title.split(":")[0]) + "</h3>" +
-        "<p>" + (l.date === todayISO ? '<span class="gs-new">New</span>' : "") + day(l.date) + " · " + esc(l.level) + " · " + l.minutes + " min</p></a>";
+      return '<li><a class="gs-row" href="' + url(l) + '" style="--tc:' + t[0] + '">' +
+        '<span class="gs-row__icon" aria-hidden="true"><i style="-webkit-mask-image:url(assets/icons/ui-' + t[1] + '.svg);mask-image:url(assets/icons/ui-' + t[1] + '.svg)"></i></span>' +
+        '<span class="gs-row__text"><span class="gs-row__title">' + esc(l.title.split(":")[0]) + '</span><span class="gs-row__meta">' + day(l.date) + " · " + esc(l.track) + " · " + l.minutes + " min</span></span>" +
+        '<svg class="gs-row__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>';
     }).join("");
   }
 

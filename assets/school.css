@@ -107,3 +107,59 @@ html[data-tone="dark"] {
 /* lesson covers: one height for every cover in a row */
 .gs-cover { flex: none !important; height: var(--p-h); min-height: 0; }
 .gs-sub input { width: 100%; }
+
+/* ---------- the logo: four dots in Google's colours beside the name */
+.gs-mark { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 22px; height: 22px; margin-right: 10px; flex: none; vertical-align: -4px; }
+.gs-mark i { border-radius: 50%; }
+.gs-mark i:nth-child(1) { background: #4285f4; } .gs-mark i:nth-child(2) { background: #ea4335; }
+.gs-mark i:nth-child(3) { background: #34a853; } .gs-mark i:nth-child(4) { background: #fbbc05; }
+.nav__logo { display: inline-flex; align-items: center; }
+.footer .nav__logo .gs-mark { width: 0.9em; height: 0.9em; }
+
+/* ---------- latest lessons: today's lesson featured beside a ruled list of the next five */
+.gs-feature { display: flex; flex-direction: column; gap: var(--s-4); padding: var(--s-6); position: relative; overflow: hidden; }
+.gs-feature::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, #4285f4 0 25%, #ea4335 25% 50%, #fbbc05 50% 75%, #34a853 75%); }
+.gs-feature__top { display: flex; align-items: center; gap: var(--s-2); font-size: 14px; font-weight: 500; color: var(--muted); }
+.gs-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tc); flex: none; }
+.gs-feature__title { font: var(--display-weight) clamp(26px, 2.4vw, 34px)/1.12 var(--font-display); letter-spacing: var(--display-tracking); }
+.gs-feature__tldr { margin: 0; padding-left: 1.1em; display: grid; gap: var(--s-2); color: var(--ink); }
+.gs-feature__tldr li::marker { color: var(--action); }
+.gs-feature__meta { font-size: 14px; color: var(--muted); margin-top: auto; }
+.gs-feature__go { align-self: flex-start; }
+.gs-rows { list-style: none; margin: 0; padding: 0; display: grid; }
+.gs-rows > li + li { border-top: 1px solid var(--line); }
+.gs-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) 16px; gap: var(--s-4); align-items: center; padding: var(--s-4) var(--s-2); border-radius: var(--r-sm); transition: background .2s; }
+.gs-row:hover { background: color-mix(in oklab, var(--ink) 5%, transparent); }
+.gs-row__icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in oklab, var(--tc) 16%, var(--bg)); }
+.gs-row__icon i { width: 22px; height: 22px; background: var(--tc); -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.gs-row__text { display: grid; gap: 2px; min-width: 0; }
+.gs-row__title { font: 500 17px/1.35 var(--font-text); }
+.gs-row__meta { font-size: 14px; color: var(--muted); }
+.gs-row__arrow { width: 14px; height: 14px; color: var(--muted); transition: transform .2s, color .2s; }
+.gs-row:hover .gs-row__arrow { transform: translateX(3px); color: var(--action); }
+.gs-latest { align-items: stretch; }
+
+/* ---------- under 1280px the stacked sections grow with what they hold, so nothing is cut or left as a gap */
+@media (max-width: 1279px) {
+  main > section:not(.hero) { height: auto !important; min-height: 0 !important; }
+  main > section:not(.hero) > .wrap { height: auto !important; }
+  main > section:not(.hero) > .wrap > .fill, main > section:not(.hero) .group { flex: none !important; min-height: auto !important; }
+  #inside > .wrap { display: flex; flex-direction: column; row-gap: var(--card-gap); }
+  #inside .gs-ui { width: calc(100% - 48px); max-width: 440px; }
+  #inside .stage > .at-rise { left: 24px; right: 24px; }
+  .gs-dg { min-height: 440px; }
+}
+@media (max-width: 1023px) {
+  .gs-latest > .gs-feature, .gs-latest > .gs-rows { grid-column: 1 / -1; }
+  .gs-rows { margin-top: var(--s-4); }
+  #sources .grid > * { grid-column: 1 / -1; }
+}
+@media (max-width: 639px) {
+  .gs-feature { padding: var(--s-5); }
+  .gs-rows > li:nth-child(n + 5) { display: none; }
+  .gs-row { grid-template-columns: 40px minmax(0, 1fr) 14px; gap: var(--s-3); padding-inline: 0; }
+  .gs-row__icon { width: 40px; height: 40px; }
+  .gs-dg { min-height: 380px; padding: var(--s-3); }
+}
+/* phone: the topic row would wrap into a block of words, so it stays a desktop detail; feature bullets clamp */
+@media (max-width: 639px) { .gs-marquee { display: none; } }
