@@ -43,13 +43,15 @@
       </header>
       <div class="filters" id="track-chips" aria-label="Filter by track"></div>
       <div class="filters">
+        <label class="sr-only" for="track-select">Track</label>
+        <select class="search track-select" id="track-select"></select>
         <label class="sr-only" for="level">Level</label>
         <select class="search" id="level" style="width:auto"><option value="All">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
         <label class="sr-only" for="search">Search lessons</label>
         <input class="search" id="search" type="search" placeholder="Search lessons">
         <span class="muted" id="count" style="font-size:14px"></span>
       </div>
-      <div class="grid" id="grid"></div>
+      <div class="gs-tiles" id="grid"></div>
     </div>
   </div>
   <div class="page" id="changelog">

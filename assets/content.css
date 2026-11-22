@@ -198,3 +198,23 @@ html[data-tone="dark"] { --good: #81c995; --bad: #f28b82; --warn: #fdd663; }
 /* lesson covers on inner pages: the home page's height */
 .gs-lesson .panel { --p-h: 112px; }
 @media (max-width: 639px) { .gs-lesson .panel { --p-h: 88px; } }
+
+/* ---------- lesson tiles: a compact, responsive grid (Every lesson, Where to go next) */
+.gs-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: var(--s-3); }
+.gs-tile { display: grid; grid-template-columns: 44px minmax(0, 1fr) 16px; gap: var(--s-4); align-items: center; padding: var(--s-4) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-md); background: color-mix(in oklab, var(--ink) 2%, var(--bg)); transition: border-color .2s, transform .2s, background .2s; }
+.gs-tile:hover { border-color: color-mix(in oklab, var(--tc) 55%, var(--line)); transform: translateY(-2px); }
+.gs-tile:hover .gs-row__arrow { transform: translateX(3px); color: var(--action); }
+.gs-tile__body { display: grid; gap: 3px; min-width: 0; }
+.gs-tile__meta { font-size: 13px; font-weight: 500; color: var(--muted); }
+.gs-tile__title { font: 500 17px/1.35 var(--font-text); color: var(--ink); }
+.gs-tile__sub { font-size: 14px; color: var(--muted); }
+.gs-tiles .empty { grid-column: 1 / -1; }
+@media (max-width: 639px) { .gs-tile { grid-template-columns: 40px minmax(0, 1fr) 14px; gap: var(--s-3); padding: var(--s-3) var(--s-4); } .gs-tile .gs-row__icon { width: 40px; height: 40px; } }
+
+/* tracks: chips from 640px, one dropdown on a phone */
+.track-select { display: none; }
+@media (max-width: 639px) {
+  #track-chips { display: none; }
+  .track-select { display: block; flex: 1 1 140px; width: auto; }
+  #level { flex: 1 1 120px; }
+}

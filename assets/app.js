@@ -102,7 +102,8 @@
             </div>
           </div>
         </footer>
-        <div class="toast" id="toast" role="status" aria-live="polite"></div>`;
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <nav class="actionbar" aria-label="Quick actions"><a class="btn btn--primary" href="${todayUrl}">Read today's lesson</a></nav>`;
     }
   }
 
@@ -159,13 +160,18 @@
   };
 
   // ---------- lesson cards (the same card as the home page)
+  // A lesson as a compact tile: the track's glyph, the track and level, the title, the date.
   function card(l) {
     const [color, icon] = tstyle(l.track);
     return `
-      <a class="card card--open card--row span-4 gs-lesson" href="${lessonUrl(l.slug)}" style="--tc:${color}">
-        <div class="panel gs-cover"><span class="gs-cover__icon" style="-webkit-mask-image:url(assets/icons/ui-${icon}.svg);mask-image:url(assets/icons/ui-${icon}.svg)"></span><span class="gs-cover__track">${esc(l.track)}</span></div>
-        <h3>${esc(l.title.split(":")[0])}</h3>
-        <p>${l.date === TODAY ? '<span class="gs-new">New</span>' : ""}${fmtDate(l.date, { month: "short", day: "numeric" })} · ${esc(l.level)} · ${l.minutes} min</p>
+      <a class="gs-tile" href="${lessonUrl(l.slug)}" style="--tc:${color}">
+        <span class="gs-row__icon" aria-hidden="true"><i style="-webkit-mask-image:url(assets/icons/ui-${icon}.svg);mask-image:url(assets/icons/ui-${icon}.svg)"></i></span>
+        <span class="gs-tile__body">
+          <span class="gs-tile__meta">${l.date === TODAY ? '<span class="gs-new">New</span>' : ""}${esc(l.track)} · ${esc(l.level)}</span>
+          <span class="gs-tile__title">${esc(l.title.split(":")[0])}</span>
+          <span class="gs-tile__sub">${fmtDate(l.date, { month: "short", day: "numeric" })} · ${l.minutes} min read</span>
+        </span>
+        <svg class="gs-row__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>`;
   }
 
@@ -195,10 +201,24 @@
     const state = { track: "All", level: "All", q: "" };
     const counts = Object.fromEntries(TRACKS.map((t) => [t, LESSONS.filter((l) => l.track === t).length]));
     const chips = $("track-chips");
-    const drawChips = () =>
-      (chips.innerHTML = ["All", ...TRACKS.filter((t) => counts[t])]
+    // The tracks as chips (tablet and up) and as one dropdown (phone); both drive the same filter.
+    const sel = $("track-select");
+    const drawChips = () => {
+      const list = ["All", ...TRACKS.filter((t) => counts[t])];
+      chips.innerHTML = list
         .map((t) => `<button class="chip" type="button" aria-pressed="${t === state.track}" data-track="${esc(t)}">${esc(t)}${t === "All" ? "" : ` · ${counts[t]}`}</button>`)
-        .join(""));
+        .join("");
+      if (sel) {
+        sel.innerHTML = list.map((t) => `<option value="${esc(t)}">${t === "All" ? "All tracks" : `${esc(t)} (${counts[t]})`}</option>`).join("");
+        sel.value = state.track;
+      }
+    };
+    if (sel)
+      sel.addEventListener("change", (e) => {
+        state.track = e.target.value;
+        drawChips();
+        draw();
+      });
     const draw = () => {
       const list = LESSONS.filter(
         (l) =>
@@ -534,7 +554,7 @@
 
       const rel = related(lesson);
       $("related").innerHTML = rel.length
-        ? `<div class="block-head"><h2>Where to go next</h2><a class="link" href="updates.html">See every lesson</a></div><div class="grid">${rel.map(card).join("")}</div>`
+        ? `<div class="block-head"><h2>Where to go next</h2><a class="link" href="updates.html">See every lesson</a></div><div class="gs-tiles">${rel.map(card).join("")}</div>`
         : "";
       const newer = LESSONS[pos - 1];
       const older = LESSONS[pos + 1];
