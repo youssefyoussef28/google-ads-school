@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-23-search-journey-awareness-secondary-conversions",
+  "title": "Smart Bidding now learns from your \"shallow\" conversions: how Search Journey Awareness works and how to feed it",
+  "date": "2026-11-23",
+  "track": "Bidding & Budgets",
+  "level": "Intermediate",
+  "summary": "Google published help documentation on Search Journey Awareness, which lets Smart Bidding use secondary conversion actions like sign-ups as learning signals for Search campaigns. Learn what it uses, why there is no switch, and how to set up conversion goals so it helps instead of guessing.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "Smart Bidding",
+   "secondary conversions",
+   "journey-aware bidding",
+   "conversion goals",
+   "lead generation"
+  ],
+  "minutes": 5,
+  "tldr": [
+   "Google's help center now documents Search Journey Awareness: Smart Bidding uses secondary conversion actions (sign-ups, add to cart) as learning signals to predict your primary conversion.",
+   "There is no opt-in and no on/off switch. It applies automatically to eligible Search campaigns (including AI Max and Search inventory in Performance Max) using Target CPA, Target ROAS, Maximize Conversions or Maximize Conversion Value.",
+   "Your lever is conversion setup: track the whole journey, put each action in the right goal, bid on your deepest goal, and keep shallow actions secondary."
+  ]
+ },
+ {
   "slug": "2026-11-22-editor-2-14-ai-max-default-new-search-campaigns",
   "title": "AI Max is now the default in Google Ads Editor: a pre-launch checklist for every new Search campaign",
   "date": "2026-11-22",
@@ -372,6 +395,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-23",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-23-search-journey-awareness-secondary-conversions",
+    "title": "Smart Bidding now learns from your \"shallow\" conversions: how Search Journey Awareness works and how to feed it",
+    "track": "Bidding & Budgets"
+   }
+  ]
+ },
  {
   "date": "2026-11-22",
   "items": [
