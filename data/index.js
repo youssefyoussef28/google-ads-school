@@ -1,5 +1,29 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-24-demand-gen-november-drop-read-the-stats",
+  "title": "Google's Demand Gen holiday drop: what's actually new, and how to read the \"71% more store visits\" claims",
+  "date": "2026-11-24",
+  "track": "Case Studies",
+  "level": "Intermediate",
+  "summary": "Google's November 18 Demand Gen post bundles product feeds, checkout links, creator and affiliate boosts and seasonality adjustments, with headline numbers from Petco, Javvy Coffee and Shopee. Learn which items are new, which are months old, and how to read vendor case-study stats before you copy them.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "Demand Gen",
+   "product feeds",
+   "YouTube",
+   "checkout links",
+   "case studies",
+   "Black Friday"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google's November 18 \"Demand Gen Drop\" is a holiday roundup of six tools. Only seasonality adjustments is labelled newly available; the rest were announced earlier in 2026.",
+   "The big numbers in the post (71% more store visits, 9x return, 50% higher conversion rate) come from single advertisers, unspecified test designs and different definitions of \"return\", so they are not benchmarks.",
+   "Before Black Friday, test one tool against a clean control, starting with a product feed if you already have a healthy Merchant Center catalog."
+  ]
+ },
+ {
   "slug": "2026-11-23-search-journey-awareness-secondary-conversions",
   "title": "Smart Bidding now learns from your \"shallow\" conversions: how Search Journey Awareness works and how to feed it",
   "date": "2026-11-23",
@@ -395,6 +419,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-24",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-24-demand-gen-november-drop-read-the-stats",
+    "title": "Google's Demand Gen holiday drop: what's actually new, and how to read the \"71% more store visits\" claims",
+    "track": "Case Studies"
+   }
+  ]
+ },
  {
   "date": "2026-11-23",
   "items": [
