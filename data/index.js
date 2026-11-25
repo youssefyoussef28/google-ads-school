@@ -1,5 +1,29 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-25-conversion-lift-requirements-gclid-only-not-enough",
+  "title": "Conversion Lift just got stricter: why GA4 imports and GCLID-only uploads can't prove incrementality",
+  "date": "2026-11-25",
+  "track": "Measurement & Tracking",
+  "level": "Advanced",
+  "summary": "Google updated its Conversion Lift setup guide on November 13. GA4-imported web conversions are listed as unsupported, and offline imports need more than a click ID. Learn what lift testing actually measures, how to audit your conversion setup before you book a study, and how to size a test.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "Conversion Lift",
+   "incrementality",
+   "enhanced conversions for leads",
+   "GA4 imports",
+   "offline conversions",
+   "measurement"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Conversion Lift compares users who could see your ads with a held-out group, so it estimates incremental conversions, not just attributed ones.",
+   "Google's updated help page says GA4-imported web conversions and click-ID-only (GCLID) offline imports are not supported setups. Studies need hashed first-party data instead.",
+   "Before you plan a study, audit which conversion actions you'd measure. A study can't prove lift on data it can't use."
+  ]
+ },
+ {
   "slug": "2026-11-24-demand-gen-november-drop-read-the-stats",
   "title": "Google's Demand Gen holiday drop: what's actually new, and how to read the \"71% more store visits\" claims",
   "date": "2026-11-24",
@@ -419,6 +443,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-25",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-25-conversion-lift-requirements-gclid-only-not-enough",
+    "title": "Conversion Lift just got stricter: why GA4 imports and GCLID-only uploads can't prove incrementality",
+    "track": "Measurement & Tracking"
+   }
+  ]
+ },
  {
   "date": "2026-11-24",
   "items": [
