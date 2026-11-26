@@ -1,5 +1,29 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-26-dynamic-conversion-values-steer-smart-bidding",
+  "title": "Steer Smart Bidding with the values you send: why Google's Ads Liaison says to score conversions dynamically",
+  "date": "2026-11-26",
+  "track": "Bidding & Budgets",
+  "level": "Advanced",
+  "summary": "On November 25, Google Ads Liaison Ginny Marvin said that dynamically scoring conversion values is the intended way to steer Smart Bidding, not a hack. Learn how value-based bidding uses CRM milestones, margin and predicted lifetime value, and how to build a simple value model you can trust.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "value-based bidding",
+   "conversion values",
+   "Smart Bidding",
+   "tROAS",
+   "lead generation",
+   "Smart Bidding Exploration"
+  ],
+  "minutes": 7,
+  "tldr": [
+   "Google's Ads Liaison publicly encouraged feeding dynamically scored conversion values (CRM milestones, margin, predicted lifetime value) into Google Ads as \"the best way to steer the system\".",
+   "Smart Bidding optimizes the numbers you give it. If every lead or sale is worth the same to it, it will chase the cheapest ones, even if they are the least profitable.",
+   "You don't need a data-science team. Start with three or four value tiers based on real outcomes, then check that bids follow them."
+  ]
+ },
+ {
   "slug": "2026-11-25-conversion-lift-requirements-gclid-only-not-enough",
   "title": "Conversion Lift just got stricter: why GA4 imports and GCLID-only uploads can't prove incrementality",
   "date": "2026-11-25",
@@ -443,6 +467,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-26",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-26-dynamic-conversion-values-steer-smart-bidding",
+    "title": "Steer Smart Bidding with the values you send: why Google's Ads Liaison says to score conversions dynamically",
+    "track": "Bidding & Budgets"
+   }
+  ]
+ },
  {
   "date": "2026-11-25",
   "items": [

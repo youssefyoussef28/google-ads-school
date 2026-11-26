@@ -1,0 +1,116 @@
+---
+title: Steer Smart Bidding with the values you send: why Google's Ads Liaison says to score conversions dynamically
+date: 2026-11-26
+track: Bidding & Budgets
+level: Advanced
+summary: On November 25, Google Ads Liaison Ginny Marvin said that dynamically scoring conversion values is the intended way to steer Smart Bidding, not a hack. Learn how value-based bidding uses CRM milestones, margin and predicted lifetime value, and how to build a simple value model you can trust.
+tags: value-based bidding, conversion values, Smart Bidding, tROAS, lead generation, Smart Bidding Exploration
+---
+
+## In 30 seconds
+
+- Google's Ads Liaison **publicly encouraged feeding dynamically scored conversion values** (CRM milestones, margin, predicted lifetime value) into Google Ads as "the best way to steer the system".
+- Smart Bidding optimizes the **numbers you give it**. If every lead or sale is worth the same to it, it will chase the cheapest ones, even if they are the least profitable.
+- You don't need a data-science team. Start with **three or four value tiers** based on real outcomes, then check that bids follow them.
+
+## What changed
+
+- On **November 25, 2026**, Search Engine Roundtable [reported](https://www.seroundtable.com/google-ads-dynamically-scoring-conversion-values-42609.html) a LinkedIn exchange. An advertiser asked whether Google's bidding has a "reward hacking" problem (the algorithm chases the target while missing better opportunities) and suggested using your own AI to adjust the values you send back.
+- Ginny Marvin, Google's Ads Liaison, replied that no hack is needed. This is what **value-based bidding** is designed for: passing predictive values such as CRM milestones, profit margins or predicted lifetime value (pLTV). Per the report, Google "strongly encourage[s]" it.
+- She also clarified how targets work: they are **averages**, so some conversions land above the target and some below. Unusually high CPCs usually come from real-time signals (audience, device, intent) that predict a high chance of converting.
+- She pointed to two guardrails: **Smart Bidding Exploration** (controlled testing for incremental non-brand demand) and **brand exclusions plus customer lifecycle goals** (to stop the system leaning on easy brand or remarketing conversions).
+
+Source tier: this is a Tier 1 statement, but we only have it second-hand through Search Engine Roundtable, which didn't link her original reply. Treat the quotes as reported, not verified verbatim. Nothing here is a new product launch; it is guidance on how to use what exists.
+
+## Why it matters
+
+Most accounts still send one flat value (or no value) per conversion. A "form fill" is worth 1 whether it came from a tire-kicker or a ready-to-sign buyer. Smart Bidding then optimizes toward *more form fills at the target cost*, which is exactly what you asked for and often not what you wanted.
+
+This hits hardest in **lead generation** and in ecommerce with very different margins. If you've ever said "Google gives us lots of leads, but sales says they're junk", the fix is usually better values, not tighter targeting.
+
+## The lesson: bidding follows the value signal
+
+Think of the value you send as the **definition of "good"** for the algorithm. The model predicts, for each auction, the chance and the value of a conversion, then bids to hit your tCPA or tROAS across the whole campaign.
+
+| What you send | What the bidder learns | Typical result |
+|---|---|---|
+| Same value for every lead | All leads are equal | Cheapest leads win; quality drifts |
+| Fixed values by action (call = 50, form = 20) | Actions differ, customers don't | Better, but blind to who actually buys |
+| Values that update with outcome (qualified, closed, margin) | Which searches produce *good* customers | Bids shift toward profitable traffic |
+| Predicted lifetime value | Early signals of long-term worth | Most powerful, hardest to get right |
+
+Two rules keep this honest:
+
+1. **Values must be on a consistent scale.** tROAS compares value to cost. Values in the thousands for some conversions and single digits for others will dominate learning.
+2. **Values must arrive in time.** If a value is only known 60 days later, Google can't learn from it quickly. Use an earlier proxy (qualified lead, booked demo) with a value derived from its historical close rate. This is the same delay problem covered in [the 7-day offline conversion rule](lesson.html?l=2026-11-05-offline-conversions-seven-day-rule).
+
+> [!NOTE]
+> Value-based bidding needs a value-based strategy: Maximize Conversion Value (optionally with a target ROAS) or tROAS. A flat tCPA on a count of conversions mostly ignores differences in value.
+
+## Worked example: a home-solar lead-gen account
+
+*Illustrative numbers.* A solar installer spends $20,000 a month and gets 400 form leads at $50 CPA. Sales data over the past six months:
+
+| Lead type | Share of leads | Close rate | Avg. gross profit per sale |
+|---|---|---|---|
+| Homeowner, address in service area, bill over $150 | 20% | 25% | $4,000 |
+| Homeowner, other | 50% | 8% | $4,000 |
+| Renter / out of area | 30% | 0% | n/a |
+
+Expected profit per lead:
+
+- Top tier: 0.25 × $4,000 = **$1,000**
+- Middle: 0.08 × $4,000 = **$320**
+- Bottom: **$0**
+
+Instead of sending value 1 for every form, send **1000 / 320 / 0** (or a scaled copy such as 100 / 32 / 0 if you prefer smaller numbers; the ratio is what matters). Set a tROAS target from your economics: if you want to pay at most 20% of expected profit for a lead, tROAS = 500%.
+
+What should happen: the top-tier leads are worth ~3x the middle ones and the bidder can pay more for the searches and audiences that produce them. Check after 4 to 6 weeks (and after the learning label clears, see [the learning-status lesson](lesson.html?l=2026-11-21-smart-bidding-learning-status-seven-days)) whether the **share of top-tier leads** rose and **cost per top-tier lead** fell. If lead count dropped but top-tier count held, the system is doing what you asked.
+
+## What others are doing
+
+- **Google's own tutorial** on value-based bidding in Search (video below, from the Google Ads channel) walks through choosing what to value and setting up the strategy. It is a Google-produced source, so it presents the feature favourably.
+- **Optmyzr** publishes a walkthrough of conversion value adjustments (below). The technique is related: it changes the recorded value for conversions from specific audiences, devices or locations. It's a lighter alternative when you can't import outcome data yet.
+- Practitioner consensus in the PPC community, as reflected in the thread behind this story, is that the lever is real but depends heavily on the quality of the data you send. We found no public, numbers-backed test in the sources we checked for this lesson, so treat any "X% better ROAS" claim you see with caution.
+
+## Where the experts disagree
+
+- **Google's view (as reported):** the system is working as designed, targets are averages, outliers come from strong real-time signals, and you steer with better values plus guardrails such as Exploration.
+- **The sceptical view:** the original question implies a worry that bidding chases the target without understanding opportunity cost, and that feeding values is a workaround for a black box. Some practitioners add that high-CPC outliers on irrelevant terms still happen and are costly before the model "learns".
+- **What the evidence supports:** the mechanism (optimizing to the value you send) is documented. The size of the benefit depends on volume and data quality, and we haven't seen independent numbers. Smart Bidding Exploration is, per Google's [help page](https://support.google.com/google-ads/answer/15489627), an opt-in beta where traffic diversity is the main success metric, and Google's own headline gains are self-reported.
+
+**Our take:** If you run lead gen or have uneven margins, move from flat values to three or four outcome-based tiers before touching anything else; it's the highest-leverage fix and easy to reverse. Don't do it if you have under roughly 30 to 50 value-bearing conversions a month, because there won't be enough signal and the values will just add noise.
+
+## Watch
+
+```youtube
+d5QiAUygCoo | Google Ads Tutorials: Best Practices to implement value based bidding in Search | Google Ads
+35GBxbrDhcM | How to Do Conversion Value Adjustments in Google Ads | Optmyzr
+```
+
+- Google Ads' tutorial gives the official framing for choosing values; watch it to see what Google recommends and remember it is the vendor's view.
+- Optmyzr shows the in-interface route (conversion value adjustments), useful if you can't yet import CRM outcomes.
+
+## Do this today
+
+1. Open your main conversion goals. Write down what each action is worth to the business, in profit if you can.
+2. Ask sales or your CRM for the close rate of each lead type from the last 6 months.
+3. Compute expected profit per lead tier (close rate × profit per sale). Round to a clean ratio.
+4. Check whether your bid strategy is value-based (Maximize Conversion Value or tROAS) and whether your values are consistent in scale.
+5. Pick the earliest reliable signal (qualified lead, booked meeting) and set its value. Plan a CRM import for later stages.
+6. Note today's tier mix and cost per tier, so you can compare in 4 to 6 weeks without changing anything else.
+7. If budget is not limiting and you're on tROAS, read Google's Smart Bidding Exploration page before deciding whether to test it.
+
+## Quiz
+
+```quiz
+[
+  {"q": "A lead-gen account sends a value of 1 for every form fill and uses Maximize Conversion Value. Sales complains about lead quality. What is the most likely cause?", "options": ["The bidder cannot tell good leads from bad ones because they all carry the same value", "Smart Bidding ignores conversion values entirely", "The daily budget is too high", "Broad match is always off"], "answer": 0, "why": "With identical values the bidder optimizes for the cheapest leads. Differentiated values tell it which leads matter."},
+  {"q": "Close rates are 25% for top leads, 8% for middle leads, and gross profit per sale is $4,000. What is a sensible ratio of values for top vs. middle leads?", "options": ["1 : 1", "About 3 : 1 (1,000 vs 320)", "About 1 : 3", "25 : 8 on the sale price"], "answer": 1, "why": "Expected profit per lead is 0.25 × 4,000 = 1,000 and 0.08 × 4,000 = 320, so roughly 3 : 1. The ratio of expected profit is what matters."},
+  {"q": "Your best value signal is a closed sale that happens about 70 days after the click. What should you do?", "options": ["Wait until sales close and send nothing earlier", "Use an earlier proxy such as a qualified lead, valued from its historical close rate", "Delete the conversion action", "Send a random value"], "answer": 1, "why": "Smart Bidding needs timely signals. An earlier proxy with a value based on historical outcomes lets it learn without waiting two months."}
+]
+```
+
+---
+
+**Sources:** [Search Engine Roundtable, Nov 25, 2026](https://www.seroundtable.com/google-ads-dynamically-scoring-conversion-values-42609.html) · [Google Ads Help: About Smart Bidding Exploration](https://support.google.com/google-ads/answer/15489627) · [Google Ads tutorial video](https://www.youtube.com/watch?v=d5QiAUygCoo) · [Optmyzr video](https://www.youtube.com/watch?v=35GBxbrDhcM)
