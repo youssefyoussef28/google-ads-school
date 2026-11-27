@@ -1,5 +1,28 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-27-asset-scheduling-day-ranges-budget-pacing",
+  "title": "Schedule sitelinks by weekday or weekend, and check your budget pacing first: a Black Friday scheduling checklist",
+  "date": "2026-11-27",
+  "track": "Fundamentals",
+  "level": "Beginner",
+  "summary": "Practitioners report that Google Ads asset scheduling now offers \"Mondays - Fridays\" and \"Saturdays - Sundays\" day ranges. Learn how asset schedules and campaign ad schedules interact, why Google's budget-pacing rule can make a weekday-only campaign spend more than you expect, and how to check both in ten minutes.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "asset scheduling",
+   "sitelinks",
+   "ad schedule",
+   "budget pacing",
+   "Black Friday"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Asset scheduling (for example on sitelinks) now reportedly offers \"Mondays - Fridays\" and \"Saturdays - Sundays\" as single choices, so you no longer add one row per day. It is reported by practitioners, not yet in Google's help page, and may be a staged rollout.",
+   "A scheduled asset only shows with an ad. If your campaign ad schedule is off on those days, the asset schedule does nothing, so keep both schedules telling the same story.",
+   "Separately, Google's budget rule means a campaign with days switched off can pace toward 30.4 x the daily budget, capped at 2x on any single day. Run the math before a sale, not after."
+  ]
+ },
+ {
   "slug": "2026-11-26-dynamic-conversion-values-steer-smart-bidding",
   "title": "Steer Smart Bidding with the values you send: why Google's Ads Liaison says to score conversions dynamically",
   "date": "2026-11-26",
@@ -467,6 +490,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-27",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-27-asset-scheduling-day-ranges-budget-pacing",
+    "title": "Schedule sitelinks by weekday or weekend, and check your budget pacing first: a Black Friday scheduling checklist",
+    "track": "Fundamentals"
+   }
+  ]
+ },
  {
   "date": "2026-11-26",
   "items": [

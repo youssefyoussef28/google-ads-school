@@ -1,0 +1,114 @@
+---
+title: Schedule sitelinks by weekday or weekend, and check your budget pacing first: a Black Friday scheduling checklist
+date: 2026-11-27
+track: Fundamentals
+level: Beginner
+summary: Practitioners report that Google Ads asset scheduling now offers "Mondays - Fridays" and "Saturdays - Sundays" day ranges. Learn how asset schedules and campaign ad schedules interact, why Google's budget-pacing rule can make a weekday-only campaign spend more than you expect, and how to check both in ten minutes.
+tags: asset scheduling, sitelinks, ad schedule, budget pacing, Black Friday
+---
+
+## In 30 seconds
+
+- Asset scheduling (for example on **sitelinks**) now reportedly offers **"Mondays - Fridays"** and **"Saturdays - Sundays"** as single choices, so you no longer add one row per day. It is **reported by practitioners, not yet in Google's help page**, and may be a staged rollout.
+- A scheduled asset **only shows with an ad**. If your campaign ad schedule is off on those days, the asset schedule does nothing, so keep **both schedules telling the same story**.
+- Separately, Google's budget rule means a campaign with **days switched off** can pace toward **30.4 x the daily budget**, capped at **2x on any single day**. Run the math before a sale, not after.
+
+## What changed
+
+- On **October 30, 2026**, paid search practitioner Bia Camargo described on LinkedIn a new day selector in asset scheduling: **All days**, **Mondays - Fridays**, **Saturdays - Sundays**. PPC Land's write-up, [Google Ads asset scheduling gains 3 day ranges ahead of Black Friday](https://ppc.land/google-ads-asset-scheduling-gains-3-day-ranges-ahead-of-black-friday/), summarizes it and reports that you can also add several schedules to the same asset.
+- The coverage focuses on **sitelinks**. It does not confirm whether callouts or other asset types get the same ranges.
+- **Not confirmed by Google yet.** [Google's sitelink help page](https://support.google.com/google-ads/answer/2375416?hl=en) says you can specify the dates, days of the week or times of day your sitelinks are eligible to show, but it does not mention the new ranges. One commenter suggested a beta or staged rollout, so you may not see it in your account.
+- A related Google rule, effective **June 1, 2026**, changes how [daily budgets interact with ad schedules](https://support.google.com/google-ads/answer/16913225?hl=en). It is the reason this lesson pairs the two topics.
+
+## Why it matters
+
+Black Friday week is when people schedule things: a "Free delivery ends Monday" sitelink, a weekend-only offer, a weekday B2B message. Before, a weekday-only sitelink meant five schedule rows. Now it can be one. That is a small time saver, but the bigger risk sits next to it: two separate schedules (assets and campaign) that must agree, and a budget rule that quietly changes what "daily budget" means when days are switched off.
+
+## The lesson: three schedules, one outcome
+
+An ad is shown only if **all** of these allow it:
+
+| Schedule | What it controls | Where you set it |
+|---|---|---|
+| Campaign **ad schedule** | Days and hours the campaign can serve at all | Campaign settings |
+| **Asset schedule** | Days, hours and dates a specific sitelink or other asset is eligible | Asset's Advanced options |
+| **Budget pacing** | How much the campaign may spend over the month | Daily budget |
+
+Three consequences:
+
+1. **An asset can never outlive its campaign.** Per PPC Land's report, a sitelink scheduled for weekends will not show if the campaign's ad schedule is off on weekends, because a sitelink appears only with an ad.
+2. **Eligible is not guaranteed.** Google still decides per auction which assets accompany an ad, and its help page notes sitelinks may not show if requirements aren't met or if Google predicts low performance.
+3. **Time zone is the account's.** Schedules follow the account time zone, so a customer in another zone may see your "Friday" offer differently.
+
+### The budget rule you need to know
+
+Google's help page states that the monthly cap is **30.4 x the average daily budget**, that a campaign **cannot be charged more than 2x its daily budget on any day**, and that, since June 1, 2026, pacing will "attempt to spend up to this amount regardless of ad scheduling usage" for schedules that turn off whole days of the week. It does not apply to hour-based schedules, and Local Services, Hotel, Smart and App campaigns are excluded. Google's own maximum-spend rule of thumb:
+
+- **15 active days or fewer:** daily budget x 2 x active days
+- **16 active days or more:** daily budget x 30.4
+
+## Worked example: a weekday-only campaign
+
+*Illustrative numbers.* A B2B advertiser runs a campaign **Monday to Friday only** and sets a **$100** daily budget. December has about 23 weekdays.
+
+1. Active days (23) is above 15, so the monthly ceiling is $100 x 30.4 = **$3,040**.
+2. Spread over 23 days, that is about **$132 a day** on average, under the 2x cap of $200 a day.
+3. The owner expected about $100 x 23 = **$2,300**. The campaign may be paced toward roughly **$740 more** than that.
+4. To aim at $2,300, set the daily budget to about $2,300 / 30.4 = **$76**.
+
+Reaching the ceiling still depends on demand, competition and bid targets, as Google notes. This is a maximum to plan around, not a forecast. Google's own page gives the same type of calculation: with 20 active days and a $100 budget, it says the campaign now paces to about $3,040 and suggests about $66 a day to target $2,000.
+
+> [!WARNING]
+> If you set your Black Friday budgets before June and haven't reviewed schedule-based campaigns since, check them. Mid-month budget changes pace over the remaining calendar days, per Google's page.
+
+## What others are doing
+
+- **Camargo's advice** (via PPC Land) is to make sure asset schedules and campaign schedules say the same thing. That is a practitioner tip, not a tested result.
+- **Long-running seasonality guidance** already tells advertisers to keep Smart Bidding informed of short sales; see [seasonality adjustments before Black Friday](lesson.html?l=2026-11-20-seasonality-adjustments-black-friday). Scheduling controls *what shows*; seasonality adjustments tell bidding *what to expect*. They do different jobs.
+- **Budget-pacing explainers** from practitioners exist on YouTube (see Watch). I have only checked titles and authors, not their claims, so test any rule of thumb against Google's help page.
+
+I found **no published test** of whether day-range sitelink scheduling changes conversion rate. Treat it as a convenience feature, not a performance lever.
+
+## Where the experts disagree
+
+- **Google's position:** pacing toward the monthly amount is intended behavior, and "no action is required" unless your spend goals are affected.
+- **Practitioner caution:** the practical effect is that advertisers with day-off schedules can see higher spend than before. Whether that is good depends on whether the extra spend converts at your target.
+- **On scheduled assets:** nobody has published evidence that scheduling sitelinks beats running them all week. The case for it is message accuracy (not promising a weekend deal on Tuesday), not performance.
+- **On availability:** sources disagree on whether time-of-day scheduling is new. Google's help page already lists times of day, while PPC News Feed says it was not available before. Only the day ranges are reported as new.
+
+**Our take:** use day ranges for **message accuracy** on offers with real end dates, and verify the campaign schedule matches. Treat the budget rule as the bigger issue: if you run day-off schedules, recalculate budgets with the 30.4 formula. This is wrong for you if your campaigns run all seven days, where none of it changes your pacing.
+
+## Watch
+
+```youtube
+U27W3uUqjNg | Google's New Budget Pacing for Ad Scheduling 📈 | Ten Thousand Foot View
+79V7Igfcwg0 | How I run Black Friday in Google Ads: Prep, Execute and Cooldown | Andrew Lolk Talks PPC
+owhbM0seWSI | How to Pace Your Black Friday Ad Budget (Free Template) | Scalability School
+```
+
+- **Ten Thousand Foot View:** the title says it covers the pacing change for campaigns that don't run seven days a week.
+- **Andrew Lolk:** a Black Friday plan in three phases (prep, execute, cooldown), useful for what to do *after* today.
+- **Scalability School:** a pacing template idea you can adapt for your own daily data.
+
+## Do this today
+
+1. Open each active sale campaign and note whether it has an **ad schedule with days off**.
+2. For each one, compute the ceiling: 16+ active days = daily budget x 30.4; 15 or fewer = x 2 x active days.
+3. Compare to the spend you actually want, and adjust the daily budget if needed.
+4. Open your sale sitelinks and check **Advanced options > Asset scheduling**. See whether the day ranges appear for you.
+5. Make sure every scheduled asset's days fall inside the campaign's active days, and that end dates match the real offer end.
+6. Set a reminder to remove or extend end-dated assets after Cyber Monday.
+
+## Quiz
+
+```quiz
+[
+  {"q": "A sitelink is scheduled 'Saturdays - Sundays' but the campaign's ad schedule is off on weekends. What happens?", "options": ["The sitelink shows on its own on weekends", "The sitelink doesn't show, because it only appears with an ad", "Google overrides the campaign schedule", "The sitelink shows on weekdays instead"], "answer": 1, "why": "Assets appear within ads. If the campaign isn't serving on those days, there's no ad to attach the sitelink to."},
+  {"q": "A campaign runs 20 days a month with a $100 daily budget. Using Google's 16+ days rule, what is the monthly ceiling and what budget targets about $2,000?", "options": ["$2,000; keep $100", "$3,040; about $66", "$4,000; about $50", "$3,040; about $100"], "answer": 1, "why": "100 x 30.4 = $3,040. To aim at $2,000, divide by 30.4: about $66 a day. This matches Google's own example."},
+  {"q": "You see no published test showing day-range sitelink scheduling lifts conversions. How should you treat the feature?", "options": ["As a proven performance lever", "As a convenience for message accuracy, to be judged on your own data", "As something to avoid entirely", "As a replacement for seasonality adjustments"], "answer": 1, "why": "The honest case is accuracy and time saved. Without evidence of lift, use it where messaging needs it and measure."}
+]
+```
+
+---
+
+**Sources:** [PPC Land: asset scheduling gains 3 day ranges](https://ppc.land/google-ads-asset-scheduling-gains-3-day-ranges-ahead-of-black-friday/) · [Google Ads Help: sitelink assets](https://support.google.com/google-ads/answer/2375416?hl=en) · [Google Ads Help: daily budgets and ad schedules](https://support.google.com/google-ads/answer/16913225?hl=en)
