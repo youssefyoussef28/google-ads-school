@@ -1,5 +1,29 @@
 window.SCHOOL_INDEX = [
  {
+  "slug": "2026-11-28-purchase-signal-annotations-cart-data",
+  "title": "1K+ sold last 30d\": how Google's purchase signal badges work, and the cart data you need to earn them",
+  "date": "2026-11-28",
+  "track": "Measurement & Tracking",
+  "level": "Intermediate",
+  "summary": "Google published help documentation on purchase signal annotations, badges that show recent sales volume on Shopping ads. Learn what they require, why they depend on conversions with cart data, what's still unpublished, and how to check your setup before the holiday peak.",
+  "updated": null,
+  "updateNote": null,
+  "tags": [
+   "Shopping ads",
+   "purchase signal annotations",
+   "cart data",
+   "conversions with cart data",
+   "Merchant Center",
+   "Black Friday"
+  ],
+  "minutes": 6,
+  "tldr": [
+   "Google now documents purchase signal annotations: automatic badges such as \"1K+ sold last 30d\" on eligible Shopping ads. You can't buy or design them.",
+   "To qualify, you must report item-level sales through conversions with cart data, and the product must clear a privacy threshold Google hasn't published.",
+   "The badge only counts Google-attributed sales, so the fix is a clean cart data setup, not more budget."
+  ]
+ },
+ {
   "slug": "2026-11-27-asset-scheduling-day-ranges-budget-pacing",
   "title": "Schedule sitelinks by weekday or weekend, and check your budget pacing first: a Black Friday scheduling checklist",
   "date": "2026-11-27",
@@ -490,6 +514,17 @@ window.SCHOOL_INDEX = [
 ];
 window.SCHOOL_TRACKS = ["News & Updates","Fundamentals","Bidding & Budgets","Performance Max","Search & Keywords","Creative & Ad Copy","Measurement & Tracking","Audiences & AI","Case Studies"];
 window.SCHOOL_UPDATES = [
+ {
+  "date": "2026-11-28",
+  "items": [
+   {
+    "type": "added",
+    "slug": "2026-11-28-purchase-signal-annotations-cart-data",
+    "title": "1K+ sold last 30d\": how Google's purchase signal badges work, and the cart data you need to earn them",
+    "track": "Measurement & Tracking"
+   }
+  ]
+ },
  {
   "date": "2026-11-27",
   "items": [
